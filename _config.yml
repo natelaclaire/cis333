@@ -1,0 +1,18 @@
+title: CIS 333
+description: Tutorials and structure of UMA's CIS 333 for Spring 2025.
+remote_theme: carlosperate/jekyll-theme-rtd
+
+# Theme settings:
+site_author: Nate LaClaire
+repo_url: "https://github.com/natelaclaire/cis333"
+edit_on_github: true
+github_docs_folder: false
+sticky_navigation: true
+prev_next_buttons_location: bottom
+search_enabled: true
+hljs_style: github-gist
+
+url: "https://natelaclaire.me"
+exclude:
+- "*-slides.md"
+- README.md
