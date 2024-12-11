@@ -122,8 +122,8 @@ To maximize your learning experience, you should:
 | 11          | Chapter 5 – Chinese Zodiac Demo Site                                   | April 12           |
 | 12          | Chapter 6 - Arrays                                                     | April 19           |
 | 13          | Chapter 6 – Chinese Zodiac Demo Site                                   | April 26           |
-| 14          |                                                                        | May 3              |
-| 15          | Final Project and Final Exam Due                                       | May 10             |
+| 14          | "Headless PHP" - Creating and Using APIs                               | May 3              |
+| 15          | Final Project Due                                                      | May 10             |
 
 ### Final Project
 
@@ -142,9 +142,8 @@ Students may request accommodation for their observance of a religious holiday. 
 - **20%** of your grade will be determined by Applied Learning Activities.
 - **20%** of your grade will be determined by Reinforcement Exercises.
 - **20%** of your grade will be determined by Discovery Projects.
+- **15%** of your grade will be determined by Comprehension Check Quizzes.
 - **25%** of your grade will be determined by the Final Project.
-- **5%** of your grade will be determined by the Final Exam.
-- **10%** of your grade will be determined by Comprehension Check Quizzes.
 
 A 94-100%, A- 90-93%, B+ 87-89%, B 83-86%, B- 80-82%, C+ 77-79%, C 73-76%, C- 70-72%, D+ 67-69%, D 63-66%, D- 60-62%, F below 60%.
 
