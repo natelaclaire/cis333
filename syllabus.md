@@ -110,28 +110,24 @@ To maximize your learning experience, you should:
 | ----------- | ---------------------------------------------------------------------- | ------------------ |
 | 1           | Course Overview - Application Setup                                    | January 25         |
 | 2           | Chapter 1 – Getting Started with PHP                                   | February 1         |
-| 3           | Chapter 1 – Chinese Zodiac Demo Site                                   | February 8         |
+| 3           | Chapter 1 – Discovery Projects                                         | February 8         |
 | 4           | Chapter 2 – Functions and Control Structures                           | February 15        |
-| 5           | Chapter 2 – Chinese Zodiac Demo Site                                   | February 22        |
+| 5           | Chapter 2 – Discovery Projects                                         | February 22        |
 | 6           | Chapter 3 – Constructing Text Strings                                  | March 1            |
-| 7           | Chapter 3 – Chinese Zodiac Demo Site                                   | March 8            |
+| 7           | Chapter 3 – Discovery Projects                                         | March 8            |
 | 8           | Chapter 4 – Coding Forms                                               | March 15           |
 |             | **No Assignments Due March 22 – Spring Break**                         |                    |
-| 9           | Chapter 4 – Chinese Zodiac Demo Site                                   | March 29           |
+| 9           | Chapter 4 – Discovery Projects                                         | March 29           |
 | 10          | Chapter 5 – File and Directory Handling                                | April 5            |
-| 11          | Chapter 5 – Chinese Zodiac Demo Site                                   | April 12           |
+| 11          | Chapter 5 – Discovery Projects                                         | April 12           |
 | 12          | Chapter 6 - Arrays                                                     | April 19           |
-| 13          | Chapter 6 – Chinese Zodiac Demo Site                                   | April 26           |
-| 14          |                                                                        | May 3              |
+| 13          | Chapter 6 – Discovery Projects                                         | April 26           |
+| 14          | Professional Tooling, Workflows, and Server Interaction Scenarios      | May 3              |
 | 15          | Final Project and Final Exam Due                                       | May 10             |
 
 ### Final Project
 
-TODO: fix final project description!
-
-As a core part of this course, each student will create a WordPress Web site of their own choosing, applying the concepts learned in the tutorials. This could be a Web site for a real or fictitious business or non-profit, a personal Web site, or an informative Web site on a topic of your choosing - and if you have another idea that doesn't fit into one of those categories, that will probably work as well! Just keep in mind when selecting a Portfolio Site that by the end of the course your Portfolio Site will need to include multiple pages, an image gallery, blog/news posts with multiple categorizations, a contact form, a calendar, a map, a forum, and a shop.
-
-One of the first week's assignments is to propose the topic for your Portfolio Site. The instructor will respond with approval, suggestions, and/or questions before you should begin building the Portfolio Site.
+Each student will create a simple CRUD (create, read, update, delete) Web application as their final project, with data stored in a file. This will utilize the core PHP concepts covered in the course, including PHP syntax, functions, control structures, text manipulation, form handling, file handling, and arrays. A full description of the project along with a grading rubric will be available during the first week of the course, including a sample application topic. Each student will have the choice of either building the application described in the sample or creating their own application that meets the same requirements. Each student will submit their choice of final project topic during the third week of the course.
 
 ### Religious Holidays
 
