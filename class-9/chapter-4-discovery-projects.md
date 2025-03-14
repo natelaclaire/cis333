@@ -184,13 +184,19 @@ function displayContactForm(array $validationResult = []): void
         if (isset($validationResult['sendingError'])) {  
             echo '<div class="alert alert-danger" role="alert">'.$validationResult['sendingError'].'</div>';  
         } else {  
-            echo '<div class="alert alert-danger" role="alert">Something is not right. Please check the message'.(count($validationResult)==1?'':'s').' below, make any necessary corrections, and try again. Thank you!</div>';  
+            echo '<div class="alert alert-danger" role="alert">Something is not right. Please check the message'.
+            (count($validationResult)==1?'':'s').' below, make any necessary corrections, and try again. Thank you!</div>';  
         }  
     }
 
-    echo textField('First Name', 'first', $validationResult, 1, 100, null, true); // see how unclear positional arguments can be?  
-    echo emailField('Email Address', 'email', $validationResult, minLength: 5, maxLength: 255, placeholder: null, required: true); // named arguments clarify things  
-    echo textareaField(label: 'Message', validationResult: $validationResult, name: 'message', rows: 3, maxLength: 600, minLength: 5, wrap: 'soft', required: true); // and with named arguments, you can skip any default values and use whatever order you want  
+    // see how unclear positional arguments can be?  
+    echo textField('First Name', 'first', $validationResult, 1, 100, null, true); 
+    // named arguments clarify things  
+    echo emailField('Email Address', 'email', $validationResult, minLength: 5, maxLength: 255, 
+        placeholder: null, required: true); 
+    // and with named arguments, you can skip any default values and use whatever order you want  
+    echo textareaField(label: 'Message', validationResult: $validationResult, name: 'message', 
+        rows: 3, maxLength: 600, minLength: 5, wrap: 'soft', required: true); 
     echo '<button type="submit" class="btn btn-primary">Send</button>';  
     echo '</form>';  
 }
@@ -258,7 +264,9 @@ function sendContactFormEmail(): bool|string
     // fetch the information entered into the form  
     $replyTo = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);  
     $first = filter_input(INPUT_POST, 'first', FILTER_SANITIZE_FULL_SPECIAL_CHARS);  
-    $message = nl2br(filter_input(INPUT_POST, 'message', FILTER_SANITIZE_FULL_SPECIAL_CHARS)); // this removes HTML from the message by HTML-encoding special characters and then converts newlines to HTML line break tags (\<br\>)
+    // this removes HTML from the message by HTML-encoding special characters and then converts
+    // newlines to HTML line break tags (<br>)
+    $message = nl2br(filter_input(INPUT_POST, 'message', FILTER_SANITIZE_FULL_SPECIAL_CHARS)); 
 
     // create the HTML for the message body  
     $html = '<p><strong>First Name:</strong> '.$first.'</p>';  
@@ -306,17 +314,23 @@ Now let’s put it together! Create a file named `contact-us.php` in the `includ
 <div class="container px-4 py-5">
     <h1>Contact Us</h1>
     <?php
-    if ($_SERVER['REQUEST_METHOD']=='POST') { // validate and either send or redisplay the form if this request is a POST  
+    // validate and either send or redisplay the form if this request is a POST  
+    if ($_SERVER['REQUEST_METHOD']=='POST') { 
         $validationResult = validateContactForm();
 
         if (count($validationResult)==0) {  
             // there were no validation messages, so we send  
-            if ($sendStatus = sendContactFormEmail()) {  
+            $sendStatus = sendContactFormEmail();
+            if ($sendStatus===true) {  
                 // sending was successful, so display a confirmation  
-                echo '<div class="alert alert-success" role="alert">Thank you for reaching out! We&rsquo;ll be in touch within 48 hours.</div>';  
+                echo '<div class="alert alert-success" role="alert">Thank you for reaching out!'.
+                    .' We&rsquo;ll be in touch within 48 hours.</div>';  
             } else {  
-                // something went wrong with sending even though the form validated - we’ll display the error received and ask them to try again  
-                displayContactForm(['sendingError' => "<p>There was a problem sending the message: {$sendStatus}</p><p>Please double-check what you entered and try again in a few seconds. We apologize for the inconvenience.</p>"]);  
+                // something went wrong with sending even though the form validated - we’ll display
+                // the error received and ask them to try again  
+                displayContactForm(['sendingError' => "<p>There was a problem sending the message:".
+                    " {$sendStatus}</p><p>Please double-check what you entered and try again in a ".
+                    "few seconds. We apologize for the inconvenience.</p>"]);  
             }  
         } else {  
             // there were validation messages, so we redisplay the form along with the messages  
@@ -339,4 +353,8 @@ Finally, let’s include the `includes/contact-us.php` file when someone visits 
         break;
 ```
 
-Save your changes and visit index.php. Click the link to the Contact Us page and test the form!
+Save your changes.
+
+Next, open `includes/main-navigation.php` and update the `href` attribute on the Contact Us link so that it points to the proper page, using the `constructUrl()` function as we did previously.
+
+Finally, visit index.php, click the link to the Contact Us page, and test the form! Try some invalid and valid inputs and ensure that you get the expected result.
