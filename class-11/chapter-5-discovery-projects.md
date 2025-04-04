@@ -19,7 +19,7 @@ Next, open your `includes/config.php` file and add the following after the openi
 ```php
 use Symfony\Component\Yaml\Yaml;
 
-$config = Yaml::parseFile(APP_PATH.'config/config.yaml');
+$config = Yaml::parseFile(APP_PATH.'config/config.yml');
 ```
 
 Next, change the line in `includes/config.php` that reads `$baseUrl = '/index.php?page=';` to `$baseUrl = $config['baseUrl'];`.
@@ -239,6 +239,8 @@ Below the `switch` block, add the following:
 ```php
 writeVisitLog($status);
 ```
+
+Now click around on the site and check in the `logs` folder to ensure that the file was created and that all pages loaded have been recorded.
 
 ## Discovery Project 5-7
 
