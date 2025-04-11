@@ -18,7 +18,7 @@ In this exercise, you'll create a Song Organizer script.
 
 ## Exercise 6-2
 
-In this exercise, you'll create a multidimensional array that contains the measurements, in inches, for several boxes that a shipping company might use to determine the volume of a box. As a bonus, I've included a few examples of using the [`array_reduce()` function](https://www.php.net/array_reduce) to perform calculations that "reduce" the array to a single value.
+In this exercise, you'll create a multidimensional array that contains the measurements, in inches, for several boxes that a shipping company might use to determine the volume of a box.
 
 1. Using your Codespace, open the `public/exercises/6-2-box-array.php` file in your chapter 6 repository.
 2. Complete the definition for the `$boxes` array using the following table as a guide (the box type should be the associative array key and each array element should be an associative array with keys of "Length", "Width", and "Depth" and the values shown below - note that the keys are case sensitive!):
@@ -33,7 +33,6 @@ In this exercise, you'll create a multidimensional array that contains the measu
 4. Below the volume calculation, add an `echo` statement that outputs a table row containing five cells containing the box type, length, width, depth, and volume, respectively.
 5. Save and test the file using the PHP Dev Server to ensure that you don't see errors and that it runs as expected.
 6. Add an additional "Extra Large" box type with dimensions of your choice, save and reload the page to ensure that everything works as it should.
-7. Finally, check out the four examples of using the [`array_reduce()` function](https://www.php.net/array_reduce).
 
 ## Exercise 5-3
 
