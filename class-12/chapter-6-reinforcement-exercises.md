@@ -34,32 +34,56 @@ In this exercise, you'll create a multidimensional array that contains the measu
 5. Save and test the file using the PHP Dev Server to ensure that you don't see errors and that it runs as expected.
 6. Add an additional "Extra Large" box type with dimensions of your choice, save and reload the page to ensure that everything works as it should.
 
-## Exercise 5-3
+## Exercise 6-3
 
-In this exercise, you'll create a PHP script that uses `fopen()` to fetch CSV data from an open dataset published by the State of Maine. 
+In this exercise, you'll create a tool that looks up the distance between two European cities and also displays a table of values. 
 
-1. Using your Codespace, open the `public/exercises/5-3-population-data.php` file in your chapter 5 repository.
-2. Find the comment "open the URL for reading" and add a line that uses `fopen()` to opens a file stream for the URL in `$dataUrl` for reading only (see the table on page 268 in the textbook) and stores the file handle in a variable named `$file`.
-3. Find the comment "read the data from the file and display it in the table" and add the following below it to read each line of the streamed file and convert the comma-separated values into an indexed array named `$line`, stopping when `fgetcsv()` returns false:
+1. Using your Codespace, open the `public/exercises/6-3-european-travel.php` file in your chapter 6 repository.
+2. Inside the `cityOptions()` function, find the comment "Concatenate an `<option>` tag for each city" and add the following code:
 
 ```php
-while (($line = fgetcsv($file)) !== false) {
-    
+$options .= "<option value=\"$city\"";
+if ($city == $selectedCity) {
+      $options .= " selected";
+}
+$options .= ">$city</option>";
+```
+
+3. Find the comment "Check if the distance exists in the array...If it does, display the distance in kilometers and miles" and add the following code:
+
+```php
+if (isset($distances[$startIndex][$endIndex])) {
+   echo "<p>The distance from $startIndex to $endIndex is " .
+        $distances[$startIndex][$endIndex] . " kilometers, or " .
+        round(($kmToMiles * $distances[$startIndex][$endIndex]), 2) . 
+        " miles.</p>\n";
+} else {
+   echo "<p>The distance from " . htmlspecialchars($startIndex) . " to " .
+        htmlspecialchars($endIndex) . " is not available.</p>\n";
 }
 ```
 
-4. Inside the while loop, add an `if` block that checks if the value of `$line[1]` is "County" since we only want to output the population figures for the Maine counties.
-5. Inside the if block, echo a table row (`<tr>` tag) containing two cells (`<td>` tags) with the first cell containing `$line[0]` and the second cell containing `$line[6]`.
-6. Save and test the file using the PHP Dev Server to ensure that you don't see errors and that it runs as expected. It will take several seconds to run since it needs to download and process about 44 KB of data from a slow Web server.
+4. Find the comment "Get the city names from the keys of the $distances array" and add the following code:
 
-## Exercise 5-4
+```php
+$cityNames = array_keys($distances);
+```
 
-In this exercise, you will modify the script from exercise 5-3 so that it caches the generated table to a file named "5-4-cached-population-data.html" and only redownloads the source data once a week. Begin by saving a copy of `public/exercises/5-3-population-data.php` as `public/exercises/5-4-cached-population-data.php`. Beyond that, the exact implementation is up to you but here are some tips:
+5. Find the comment "Check if the distance exists in the array...If it does, display the distance...If it doesn't, display N/A" and add the following code:
 
-- You'll need to check if the "5-4-cached-population-data.html" file exists and, if so, compare the file modification timestamp (see page 244 in the textbook) to the output of the [`time()` function](https://www.php.net/manual/en/function.time.php), which returns the current time as a UNIX timestamp. A UNIX timestamp is an integer measured in seconds.
-- There are 86400 seconds in each day and we can output the "5-4-cached-population-data.html" file instead of having to redownload the source data as long as the file is no more than 7 days old.
-- If you have to download the CSV file and create the table, you'll need to store the HTML in a variable instead of directly outputting it, so that you can then both store it in a file and output it.
+```php
+$distance = isset($otherCities[$otherCity]) && $otherCities[$otherCity] > 0 
+            ? $otherCities[$otherCity] 
+            : 'N/A';
+```
 
-## Exercise 5-5
+6. Note that when generating the table we are using the `$cityNames` array to ensure that the order of the values matches the order of the columns. This ensures that if we make a mistake when ordering one or more set(s) of distances it won't mess up the table.
+7. Save and test the file using the PHP Dev Server to ensure that you don't see errors and that it runs as expected.
 
-Create a Web form for uploading pictures for a high school reunion and save it as `public/exercises/5-5-reunion-photos.php`. The form should have text input fields for the person's name and a description of the image, and a file input field for the image. When an image is successfully uploaded, it should be moved to a subdirectory inside `public/exercises` named `5-5-photos`. If the subdirectory doesn't exist, it should be created. When moving the photo to its destination, name the file with the person's name followed by the output of the `time()` function followed by the file extension (for example: `nate laclaire 1743261271.jpg` if the person uploaded a JPEG file, entered "nate laclaire" as their name, and uploaded it at the UNIX timestamp 1743261271). You can either use the original filename or the `type` key from the `$_FILES` array to determine the proper extension and to determine if the file is an acceptable image (see [image MIME types from MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/MIME_types#image_types)). After moving the file, append the final filename, the person's name, and the photo description to an array and store it as JSON in a file named `5-5-photos.json`. Finally, display all uploaded photos, names, and descriptions in a table.
+## Exercise 6-4
+
+Use the techniques you learned this week to create a Guest Book script that stores visitor names and e-mail addresses in a text file or JSON file. Include functionality that allows users to view the guest book and prevents the same user name from being entered twice. Also, include code that sorts the guest book by name and deletes duplicate entries. Name the PHP file `6-4-guest-book.php` and save it in `public/exercises`.
+
+## Exercise 6-5
+
+Create an online order form as a Web form. The order form should list all items for sale (at least 5), including the name, description, and price, and should provide space for the visitor to provide the quantity desired of each. The quantity should allow 0 or more - the visitor can buy some of each item but doesn't need to buy more than one of the items. You can use an `<input type="number">` or a `<select>` box for each quantity, with appropriate options/attributes. A total for each item (quantity times price) and a grand total (sum of all item totals) should be displayed. The form should have buttons to update the totals for the quantities entered and to submit the order. Save the orders to a subdirectory called `6-5-online-orders` in the `public/exercises` directory and save the PHP file as `public/exercises/6-5-online-orders.php`. Use the date and time to create a unique filename for each order.
