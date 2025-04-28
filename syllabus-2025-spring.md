@@ -1,10 +1,10 @@
 ---
 layout: default
-title: Syllabus (Summer 2025 Online)
+title: Syllabus (Spring 2025 Online)
 nav_order: 2
 ---
 
-# CIS 333: PHP Programming: Summer 2025 (Online)
+# CIS 333: PHP Programming: Spring 2025 (Online)
 
 ## Class Meetings
 
@@ -108,20 +108,22 @@ To maximize your learning experience, you should:
 
 | Week        | Assignment Topic                                                       | Due Date (11:59pm) |
 | ----------- | ---------------------------------------------------------------------- | ------------------ |
-| 1           | Course Overview - Application Setup                                    | May 17             |
-| 2           | Chapter 1 – Getting Started with PHP                                   | May 24             |
-| 3           | Chapter 1 – Discovery Projects                                         | May 31             |
-| 4           | Chapter 2 – Functions and Control Structures                           | June 7             |
-| 5           | Chapter 2 – Discovery Projects                                         | June 14            |
-| 6           | Chapter 3 – Constructing Text Strings                                  | June 21            |
-| 7           | Chapter 3 – Discovery Projects                                         | June 28            |
-| 8           | Chapter 4 – Coding Forms                                               | July 5             |
-| 9           | Chapter 4 – Discovery Projects                                         | July 12            |
-| 10          | Chapter 5 – File and Directory Handling                                | July 19            |
-| 11          | Chapter 5 – Discovery Projects                                         | July 26            |
-| 12          | Chapter 6 - Arrays                                                     | August 2           |
-| 13          | Chapter 6 – Discovery Projects                                         | August 9           |
-| 14          | Professional Tooling, Workflows, and Server Interaction Scenarios - Final Project and Final Exam Due!      | August 16          |
+| 1           | Course Overview - Application Setup                                    | January 25         |
+| 2           | Chapter 1 – Getting Started with PHP                                   | February 1         |
+| 3           | Chapter 1 – Discovery Projects                                         | February 8         |
+| 4           | Chapter 2 – Functions and Control Structures                           | February 15        |
+| 5           | Chapter 2 – Discovery Projects                                         | February 22        |
+| 6           | Chapter 3 – Constructing Text Strings                                  | March 1            |
+| 7           | Chapter 3 – Discovery Projects                                         | March 8            |
+| 8           | Chapter 4 – Coding Forms                                               | March 15           |
+|             | **No Assignments Due March 22 – Spring Break**                         |                    |
+| 9           | Chapter 4 – Discovery Projects                                         | March 29           |
+| 10          | Chapter 5 – File and Directory Handling                                | April 5            |
+| 11          | Chapter 5 – Discovery Projects                                         | April 12           |
+| 12          | Chapter 6 - Arrays                                                     | April 19           |
+| 13          | Chapter 6 – Discovery Projects                                         | April 26           |
+| 14          | Professional Tooling, Workflows, and Server Interaction Scenarios      | May 3              |
+| 15          | Final Project and Final Exam Due                                       | May 10             |
 
 ### Final Project
 
