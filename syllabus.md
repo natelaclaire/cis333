@@ -106,11 +106,11 @@ To maximize your learning experience, you should:
 
 *Note: The Applied Learning Activities, Reinforcement Exercises, and Discovery Projects will be completed by modifying the code provided via GitHub Classroom assignments and committing your work to the assignment's repository.
 
-| Week        | Assignment Topic                                                       | Due Date (11:59pm) |
+| Week        | Lesson / Assignment Topic                                              | Due Date (11:59pm) |
 | ----------- | ---------------------------------------------------------------------- | ------------------ |
 | 1           | Course Overview - Application Setup                                    | May 17             |
 | 2           | Chapter 1 – Getting Started with PHP                                   | May 24             |
-| 3           | Chapter 1 – Discovery Projects                                         | May 31             |
+| 3           | Chapter 1 – Discovery Projects - **Final Project Topic Due**           | May 31             |
 | 4           | Chapter 2 – Functions and Control Structures                           | June 7             |
 | 5           | Chapter 2 – Discovery Projects                                         | June 14            |
 | 6           | Chapter 3 – Constructing Text Strings                                  | June 21            |
@@ -121,7 +121,7 @@ To maximize your learning experience, you should:
 | 11          | Chapter 5 – Discovery Projects                                         | July 26            |
 | 12          | Chapter 6 - Arrays                                                     | August 2           |
 | 13          | Chapter 6 – Discovery Projects                                         | August 9           |
-| 14          | Professional Tooling, Workflows, and Server Interaction Scenarios - Final Project and Final Exam Due!      | August 16          |
+| 14          | Professional Tooling, Workflows, and Server Interaction Scenarios - **Final Project and Final Exam Due!**      | August 16          |
 
 ### Final Project
 
