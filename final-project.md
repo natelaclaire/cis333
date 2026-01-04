@@ -1,110 +1,296 @@
-# Final Project
+# Final Project — Open-Ended PHP Web Application
 
-Your task for the final project is to develop a simple Web application that allows users to create, view, search, and manage data of some sort. This project will utilize the core PHP concepts covered in the course, including PHP syntax, functions, control structures, text manipulation, form handling, file handling, and arrays.
+## Overview
 
-Requirements:
+For the final project, you will build a **small, interactive PHP web application** that runs in a web browser. The project is intentionally open-ended. You may build a traditional data-driven application **or** an interactive experience such as a web-based game or story.
 
-- The user should be able to perform the following activities:
-  - List records
-  - View individual records
-  - Create records
-  - Search records
-  - View a random record
-- All user input must be validated to prevent errors (e.g., empty fields, invalid characters)
-- Data should be stored in one or more arrays while the application is running
-- Data should be written to and read from a file in a structured format (e.g., JSON or CSV) so that it persists
-- Care should be taken to properly manage scope
-- Optional features for extra credit:
-  - Allow user to edit records
-  - Allow user to delete records
-  - Other more complex features, such as AJAX, pagination, or using an external API (if you have an idea for something in this category, ask me about it before you start working on it to ensure that it will count for extra credit)
+Your project must demonstrate correct and thoughtful use of the PHP concepts covered in **Chapters 1–16** of the course textbook. No database is required or expected.
 
 ---
 
-## **Submission Requirements**
+## Project Options
 
-- **Code files**: Include PHP source code and any auxiliary files (e.g., data files, images, CSS).
-- **Documentation**: Provide a brief explanation of your project, including:
-  - How to set up and run the application.
-  - How each PHP concept is used.
-  - Note optional features presented for extra credit.
-- **Screenshots or Video**: Demonstrate the application in action.
+You may choose **one** of the following approaches:
 
----
+### Option A: Data-Driven Application (CRUD optional)
 
-## **Grading Rubric**
+Examples:
 
-| Criteria                               | Weight |
-|----------------------------------------|--------|
-| Functionality (meets requirements)     | 40%    |
-| Code organization and use of functions | 20%    |
-| Proper use of PHP features             | 20%    |
-| Input validation and error handling    | 10%    |
-| Creativity and user interface          | 10%    |
+* Recipe manager
+* Movie or book catalog
+* Simple inventory tracker
+* Contact list
 
----
+CRUD features (create, update, delete) are **allowed but not required**. A read-only or partially editable application is acceptable as long as it meets the core requirements below.
 
-## **Learning Goals**
+### Option B: Web-Based Game or Interactive Experience
 
-By completing this project, students will:
+Examples:
 
-- Practice building dynamic web applications using PHP.
-- Reinforce their understanding of PHP functions, control structures, and arrays.
-- Gain experience with handling user input and file operations in PHP.
-- Develop problem-solving skills for real-world web development scenarios.
+* Chess, checkers, or other turn-based games
+* Solitaire or card-style games
+* Text-based adventure game
+* Choose-your-own-adventure or visual novel
+* Quiz or trivia game
+
+Games do **not** need advanced graphics or JavaScript. Turn logic, state tracking, and user interaction may be handled entirely with PHP, HTML, and forms.
 
 ---
 
-## **Example Final Project:** **"Dynamic Recipe Manager"**
+## Core Requirements (All Projects)
 
-### **Objective:**  
+Your project **must** include all of the following:
 
-Develop a web application that allows users to create, view, search, and manage recipes.
+### 1. Multiple Pages or States
 
-### **Project Requirements**
+* The application must support more than one screen, view, or state.
+* Navigation may use links, forms, or query parameters.
 
-1. **Homepage**  
-   - Display a list of available recipes stored in a file or an array.
-   - Provide navigation links to add a new recipe, search for recipes, or view a random recipe.
+### 2. User Input
 
-2. **Add a Recipe**  
-   - Create a form that collects the following input:
-     - Recipe name
-     - Number of servings
-     - Ingredients (comma-separated)
-     - Steps or instructions
-   - Validate user input to ensure all fields are filled out.
-   - Save the recipe details to a file (e.g., `recipes.txt`) in a structured format (e.g., JSON or CSV).
+* Accept input using HTML forms and PHP (`$_GET`, `$_POST`, or both).
+* Validate all user input (required fields, reasonable values, etc.).
+* Display helpful error messages when input is invalid.
 
-3. **View Recipes**  
-   - Read the `recipes.txt` file to retrieve and display all stored recipes.
-   - Show the recipe name, ingredients, and instructions.
+### 3. Control Structures
 
-4. **Search Recipes**  
-   - Implement a search feature that allows users to search for recipes by name or ingredient.
-   - Use string parsing and regular expressions to find matches.
-   - Display matching recipes in a user-friendly format.
+* Use conditionals (`if`, `else`, `switch`) to control application behavior.
+* Use loops (`for`, `foreach`, `while`) where appropriate.
 
-5. **Random Recipe**  
-   - Implement functionality to select and display a random recipe from the list.
+### 4. Functions
 
-6. **Edit and Delete Recipes** (Optional)  
-   - Allow users to edit or delete existing recipes.
-   - Use control structures to handle updates or deletions from the file.
+* Define and use your own PHP functions.
+* Functions should reduce repetition and improve readability.
 
-7. **Scale Recipe** (Optional)
-   - Give users the option of viewing the recipe with a modified number of servings, in which case the ingredient amounts will be modified appropriately.
+### 5. Arrays
 
-8. **User Input Validation**  
-   - Validate all user inputs to prevent errors (e.g., empty fields, invalid characters).
+* Use arrays to store and manage application data.
+* This may include indexed arrays, associative arrays, or nested arrays.
 
-9.  **File and Directory Handling**  
-   - Store recipe data in a text file or JSON file.
-   - Use PHP functions to read from and write to the file.
+### 6. File Handling
 
-10. **Array Manipulation**  
-   - Use arrays to store and manipulate recipes temporarily in the script.
+* Read from and/or write to a file so that data or state persists.
+* Acceptable formats include text files, CSV, or JSON.
+* Examples:
 
-11. **Global Variables and Scope**  
-    - Use PHP's autoglobals (e.g., `$_POST`, `$_GET`) for form and hyperlink handling.
-    - Ensure proper scope management in your functions.
+  * Saved game state
+  * Story progress
+  * High scores
+  * Application data records
+
+### 7. Output and Presentation
+
+* Generate HTML output using PHP.
+* Use basic HTML and optional CSS for layout and readability.
+* The interface should be understandable and usable.
+
+---
+
+## What Is *Not* Required
+
+* No database (MySQL, SQLite, etc.)
+* No JavaScript frameworks
+* No authentication or user accounts
+* No external libraries
+
+---
+
+## Optional Enhancements (Extra Credit)
+
+You may implement additional features for extra credit, such as:
+
+* Editable or deletable records
+* Multiple save files or game states
+* Difficulty levels or branching logic
+* Pagination or filtering
+* Limited AJAX (must be discussed with the instructor first)
+
+Extra credit is awarded for **thoughtful design**, not raw complexity.
+
+---
+
+## Submission Requirements
+
+### 1. Code
+
+* All PHP files
+* Any data files used by the application
+* Optional CSS or image assets
+
+### 2. Documentation (README)
+
+Include a short written explanation covering:
+
+* What your project does
+* How to run it
+* Which PHP concepts from the course you used
+* Any optional or extra-credit features
+
+### 3. Demonstration
+
+* Screenshots **or**
+* A short video walkthrough (2–5 minutes)
+
+---
+
+## Grading Rubric
+
+| Criteria                                   | Weight |
+| ------------------------------------------ | ------ |
+| Meets core requirements                    | 40%    |
+| Use of PHP syntax, control flow, functions | 20%    |
+| Input validation and file handling         | 15%    |
+| Code organization and readability          | 15%    |
+| Creativity and overall design              | 10%    |
+
+---
+
+## Learning Goals
+
+By completing this project, you will:
+
+* Apply core PHP concepts in a complete application
+* Practice handling user input and application state
+* Gain experience reading from and writing to files
+* Design a small but functional web application
+
+---
+
+## Learning Outcomes
+
+When planning and completing your project, ensure that it demonstrates your mastery of the course's learning outcomes:
+
+- [ ] Create PHP code blocks
+- [ ] Use functions to organize PHP code
+- [ ] Learn about variable scope and autoglobal variables
+- [ ] Use control structures, nested control structures, and looping structures
+- [ ] Construct, parse, and compare text strings and use regular expressions
+- [ ] Handle user input from forms and hyperlinks
+- [ ] Work with files and directories
+- [ ] Manipulate arrays
+
+---
+
+## Example Projects
+
+Students may use these descriptions directly or propose their own project idea that meets the same requirements. All custom project ideas must be approved before development begins.
+
+---
+
+### Example Project 1: Interactive Recipe Explorer
+
+*(Data-driven application, CRUD optional)*
+
+#### Project Description
+
+Create a PHP web application that allows users to explore and manage a collection of recipes. The application focuses on reading, searching, and displaying data. Editing and deleting recipes is optional.
+
+#### Required Features
+
+* Display a list of all recipes
+* View the full details of a single recipe
+* Search recipes by name or ingredient
+* Display a random recipe
+* Add new recipes using a form
+
+#### Technical Requirements
+
+* Store recipes in an array while the script runs
+* Persist recipes to a file using JSON or CSV
+* Validate all form input (no empty fields)
+* Use functions to:
+
+  * Load data from a file
+  * Save data to a file
+  * Search recipes
+* Use conditionals to handle missing or invalid input
+
+#### Example Data Fields
+
+* Recipe name
+* Number of servings
+* Ingredients (comma-separated)
+* Instructions
+
+#### Optional Enhancements
+
+* Edit or delete recipes
+* Filter by ingredient or serving size
+* Show a “featured recipe of the day”
+
+---
+
+### Example Project 2: Choose-Your-Own-Adventure Story
+
+*(Interactive narrative / visual novel)*
+
+#### Project Description
+
+Build a browser-based choose-your-own-adventure story using PHP. The player reads story text and makes choices that affect what happens next.
+
+#### Required Features
+
+* Present story text and choices on each page
+* Allow the player to choose between at least two options per scene
+* Track the player’s current location in the story
+* Allow the player to restart the story at any time
+
+#### Technical Requirements
+
+* Store story nodes and choices in arrays
+* Use query parameters or form submissions to track progress
+* Use conditionals to determine which scene to show
+* Organize repeated logic using functions
+* Save the player’s progress to a file so it persists across reloads
+
+#### Example Structure
+
+Each story node might include:
+
+* Scene ID
+* Story text
+* Available choices
+* Next scene IDs for each choice
+
+#### Optional Enhancements
+
+* Multiple endings
+* Inventory items that unlock choices
+* Simple CSS styling or images
+* A “previous choice” history display
+
+---
+
+### Example Project 3: Turn-Based Web Game (Tic-Tac-Toe or Similar)
+
+*(Game logic and state management)*
+
+#### Project Description
+
+Create a simple turn-based web game played entirely in the browser using PHP and HTML forms. Examples include tic-tac-toe, a guessing game, or a simplified board or card game.
+
+#### Required Features
+
+* Display the current game state
+* Allow the player to make a move using a form
+* Update the game state after each move
+* Detect win, loss, or draw conditions
+* Allow the player to restart the game
+
+#### Technical Requirements
+
+* Store the game board or state in an array
+* Use conditionals to validate moves and check win conditions
+* Use loops to display the game board
+* Use functions for:
+  * Rendering the board
+  * Checking game rules
+  * Resetting the game
+* Save the game state to a file between requests
+
+#### Optional Enhancements
+
+* Two-player mode
+* Computer opponent with simple logic
+* Score tracking across games
+* Difficulty levels
