@@ -1,10 +1,10 @@
 ---
 layout: default
-title: Syllabus (Spring 2026 Online)
+title: Syllabus (Summer 2025 Online)
 nav_order: 2
 ---
 
-# CIS 333: PHP Programming: Spring 2026 (Online)
+# CIS 333: PHP Programming: Summer 2025 (Online)
 
 ## Class Meetings
 
@@ -37,13 +37,13 @@ Any communications sent from my UMA email or from the Brightspace course will go
 
 ## Required Text and Materials
 
-<img src="images/php-crash-course-cover.jpg" alt="Required textbook: PHP Crash Course: The Complete, Modern, Hands-On Guide" width="200"/>
+<img src="images/9780538745840-cover.jpg" alt="Required textbook: PHP Programming with MySQL" width="200"/>
 
-- [_PHP Crash Course: The Complete, Modern, Hands-On Guide_](https://nostarch.com/php-crash-course)
-  - by Matt Smith
-  - ISBN-13: 9781718502529
-  - Publication date: December 2024
-  - 728 pages
+- [_PHP Programming with MySQL_](https://www.cengage.com/c/php-programming-with-mysql-the-web-technologies-series-2e-gosselin-kokoska-easterbrooks/9780538745840/)
+  - by Don Gosselin, Diana Kokoska, Robert Easterbrooks.
+  - ISBN 13: 9780538745840 © 2010
+  - Publication date: 2010
+  - 712 pages
   - Softcover
 - Additional resources provided in Brightspace
 
@@ -98,36 +98,34 @@ Students may upload late homework assignments with _a ten-point deduction for ea
 
 To maximize your learning experience, you should:
 
-- Watch the videos, complete the Applied Learning Activities along with the instructor, and review any supplementary materials available in Brightspace.
+- Watch the videos, complete the Applied Learning Activities* along with the instructor, and review any supplementary materials available in Brightspace.
 - Communicate with the instructor if there is a concept that you do not understand.
 - Complete Comprehension Check Quizzes in Brightspace on or before the due date.
-- Complete Reinforcement Exercises on or before the due date.
-- Complete Discovery Projects on or before the due date.
+- Complete Reinforcement Exercises* (during even-numbered weeks) on or before the due date.
+- Complete Discovery Projects* (during odd-numbered weeks) on or before the due date.
 
 *Note: The Applied Learning Activities, Reinforcement Exercises, and Discovery Projects will be completed by modifying the code provided via GitHub Classroom assignments and committing your work to the assignment's repository.
 
-| Week | Topics                                                      | Chapters | Content Available  | Due Date (11:59pm)                      |
-| ---- | ----------------------------------------------------------- | -------- | ------------------ | --------------------------------------- |
-| 1    | Intro to PHP, GitHub, development environments              | 1        | January 20         | January 26                              |
-| 2    | Data types and variables                                    | 2        | January 27         | February 2                              |
-| 3    | Strings and string functions - **Final Project Topic Due!** | 3        | February 3         | February 9                              |
-| 4    | Conditionals and operators                                  | 4        | February 10        | February 16                             |
-| 5    | Custom functions                                            | 5        | February 17        | February 23                             |
-| 6    | Loops                                                       | 6        | February 24        | March 2                                 |
-| 7    | Arrays                                                      | 7–8      | March 3            | March 9                                 |
-| 8    | Files and directories                                       | 9        | March 10           | March 23                                |
-|      | **Spring Break – No Class - March 16–20, 2026**             |          |                    |                                         |
-| 9    | Web development basics                                      | 10       | March 24           | March 30                                |
-| 10   | Creating and processing forms                               | 11       | March 31           | April 6                                 |
-| 11   | Validating form data                                        | 12       | April 7            | April 13                                |
-| 12   | Organizing a web application                                | 13       | April 14           | April 20                                |
-| 13   | Sessions and state                                          | 14       | April 21           | April 27                                |
-| 14   | Shopping cart and authentication                            | 15–16    | April 28           | May 4                                   |
-| 15   | Professional Tooling, Workflows, and Server Interaction Scenarios - **Final Project Due!** | May 5              | May 9                                   |
+| Week        | Lesson / Assignment Topic                                              | Due Date (11:59pm) |
+| ----------- | ---------------------------------------------------------------------- | ------------------ |
+| 1           | Course Overview - Application Setup                                    | May 17             |
+| 2           | Chapter 1 – Getting Started with PHP                                   | May 24             |
+| 3           | Chapter 1 – Discovery Projects - **Final Project Topic Due**           | May 31             |
+| 4           | Chapter 2 – Functions and Control Structures                           | June 7             |
+| 5           | Chapter 2 – Discovery Projects                                         | June 14            |
+| 6           | Chapter 3 – Constructing Text Strings                                  | June 21            |
+| 7           | Chapter 3 – Discovery Projects                                         | June 28            |
+| 8           | Chapter 4 – Coding Forms                                               | July 5             |
+| 9           | Chapter 4 – Discovery Projects                                         | July 12            |
+| 10          | Chapter 5 – File and Directory Handling                                | July 19            |
+| 11          | Chapter 5 – Discovery Projects                                         | July 26            |
+| 12          | Chapter 6 - Arrays                                                     | August 2           |
+| 13          | Chapter 6 – Discovery Projects                                         | August 9           |
+| 14          | Professional Tooling, Workflows, and Server Interaction Scenarios - **Final Project and Final Exam Due!**      | August 16          |
 
 ### Final Project
 
-For the final project, you will build a **small, interactive PHP web application** that runs in a web browser. The project is intentionally open-ended. You may build a traditional data-driven application **or** an interactive experience such as a web-based game or story. A full description of the project requirements along with a grading rubric will be available during the first week of the course, including a sample application topic. Each student will submit their choice of final project topic during the third week of the course.
+Each student will create a simple CRUD (create, read, update, delete) Web application as their final project, with data stored in a file. This will utilize the core PHP concepts covered in the course, including PHP syntax, functions, control structures, text manipulation, form handling, file handling, and arrays. A full description of the project along with a grading rubric will be available during the first week of the course, including a sample application topic. Each student will have the choice of either building the application described in the sample or creating their own application that meets the same requirements. Each student will submit their choice of final project topic during the third week of the course.
 
 ### Religious Holidays
 
