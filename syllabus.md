@@ -123,7 +123,7 @@ To maximize your learning experience, you should:
 | 12   | Organizing a web application                                | 13       | April 14           | April 20                                |
 | 13   | Sessions and state                                          | 14       | April 21           | April 27                                |
 | 14   | Shopping cart and authentication                            | 15–16    | April 28           | May 4                                   |
-| 15   | Professional Tooling, Workflows, and Server Interaction Scenarios - **Final Project Due!** | May 5              | May 9                                   |
+| 15   | Professional Tooling, Workflows, and Server Interaction Scenarios - **Final Project Due!** |            | May 5              | May 9                                   |
 
 ### Final Project
 
