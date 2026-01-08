@@ -1,3 +1,9 @@
+---
+layout: default
+title: "Class 1 Reinforcement Exercises: PHP Basics"
+published: true
+---
+
 # Class 1 Reinforcement Exercises: PHP Basics
 
 ## Exercise 1-1 — PHP Statements, Variables, and Comments
@@ -10,18 +16,25 @@
 
 ### Student task
 
-Create `src/ex01.php` that:
+Create `public/ex01.php` that:
 
 1. Defines a variable `$studentName`
 2. Defines a variable `$courseName`
 3. Uses **at least one comment**
-4. Outputs nothing (tests will read variables)
+4. Outputs a message like:
+
+```
+Ada is enrolled in CIS 333
+```
 
 ### Starter file (recommended)
 
 ```php
 <?php
 // Define the student and course variables below
+
+// Output the enrollment message
+print $studentName . " is enrolled in " . $courseName;
 ```
 
 ---
@@ -36,7 +49,7 @@ Create `src/ex01.php` that:
 
 ### Student task
 
-Create `src/ex02.php` that:
+Create `public/ex02.php` that:
 
 1. Defines two numeric variables: `$width` and `$height`
 2. Defines `$area` using a **math expression**
@@ -46,9 +59,15 @@ Create `src/ex02.php` that:
 
 ```php
 <?php
+// Define width and height (change the values)
 $width = 0;
 $height = 0;
+
+// Calculate area (add the expression with the proper operator and operands)
 $area = 0;
+
+// Output area
+print $area;
 ```
 
 ---
@@ -63,11 +82,12 @@ $area = 0;
 
 ### Student task
 
-Create `src/ex03.php` that:
+Create `public/ex03.php` that:
 
 1. Defines a constant `SITE_NAME`
 2. Defines a variable `$pageTitle`
-3. `$pageTitle` must combine text and `SITE_NAME` using `.`
+3. `$pageTitle` must combine some text that you choose and `SITE_NAME` using `.`
+4. Outputs `$pageTitle`
 
 Example result:
 
@@ -80,6 +100,8 @@ Welcome to My Site
 ```php
 <?php
 // Define SITE_NAME and pageTitle
+
+// Output pageTitle
 ```
 
 ---
@@ -94,7 +116,7 @@ Welcome to My Site
 
 ### Student task
 
-Create `src/ex04.php` that outputs HTML:
+Create `public/ex04.php` that outputs HTML:
 
 ```html
 <h1>Welcome</h1>
@@ -124,7 +146,7 @@ $name = "Ada";
 
 ### Student task
 
-Create `src/ex05.php` that:
+Create `public/ex05.php` that:
 
 1. Assigns `$status = "draft"`
 2. Has a **commented-out assignment** that would change it to `"published"`
@@ -135,6 +157,9 @@ Create `src/ex05.php` that:
 ```php
 <?php
 // Set the page status
+
+// Output the status to prove its value is still "draft"
+print $status;
 ```
 
 ---
