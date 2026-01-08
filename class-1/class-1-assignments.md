@@ -6,6 +6,14 @@ published: true
 
 # Class 1 Reinforcement Exercises: PHP Basics
 
+You'll need to have accepted the assignment in Brightspace to access the GitHub repository for these exercises.
+
+After completing each exercise, remember to commit your changes with a meaningful message (such as "Completed exercise 1-1") and push/sync them to GitHub. You will need to provide the URL to your repository in Brightspace for grading.
+
+If you need help with committing and pushing, refer to the 1.1 Intro to GitHub Codespaces video or reach out if that doesn't clarify things.
+
+If you hit a roadblock and need help with any of the exercises, please commit what you have so far with a message like "Partial work on exercise 1-x", push/sync it to GitHub, and reach out for assistance, including the link to your repo.
+
 ## Exercise 1-1 — PHP Statements, Variables, and Comments
 
 **Concepts**
