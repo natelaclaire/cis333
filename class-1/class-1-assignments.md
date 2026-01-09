@@ -24,7 +24,7 @@ If you hit a roadblock and need help with any of the exercises, please commit wh
 
 ### Student task
 
-Create `public/ex01.php` that:
+Create `public/exercises/1-1-statements.php` that:
 
 1. Defines a variable `$studentName`
 2. Defines a variable `$courseName`
@@ -42,7 +42,7 @@ Ada is enrolled in CIS 333
 // Define the student and course variables below
 
 // Output the enrollment message
-print $studentName . " is enrolled in " . $courseName;
+print $studentName . " is enrolled in " . $courseName . "\n";
 ```
 
 ---
@@ -57,7 +57,7 @@ print $studentName . " is enrolled in " . $courseName;
 
 ### Student task
 
-Create `public/ex02.php` that:
+Create `public/exercises/1-2-expressions.php` that:
 
 1. Defines two numeric variables: `$width` and `$height`
 2. Defines `$area` using a **math expression**
@@ -75,7 +75,7 @@ $height = 0;
 $area = 0;
 
 // Output area
-print $area;
+print $area . "\n";
 ```
 
 ---
@@ -90,7 +90,7 @@ print $area;
 
 ### Student task
 
-Create `public/ex03.php` that:
+Create `public/exercises/1-3-constants.php` that:
 
 1. Defines a constant `SITE_NAME`
 2. Defines a variable `$pageTitle`
@@ -124,7 +124,7 @@ Welcome to My Site
 
 ### Student task
 
-Create `public/ex04.php` that outputs HTML:
+Create `public/exercises/1-4-embedded-html.php` that outputs HTML:
 
 ```html
 <h1>Welcome</h1>
@@ -154,7 +154,7 @@ $name = "Ada";
 
 ### Student task
 
-Create `public/ex05.php` that:
+Create `public/exercises/1-5-comments.php` that:
 
 1. Assigns `$status = "draft"`
 2. Has a **commented-out assignment** that would change it to `"published"`
@@ -167,7 +167,7 @@ Create `public/ex05.php` that:
 // Set the page status
 
 // Output the status to prove its value is still "draft"
-print $status;
+print $status . "\n";
 ```
 
 ---
