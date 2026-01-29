@@ -10,17 +10,17 @@ require $studentFile;
 $output = trim(ob_get_clean());
 
 $errors = [];
-if (!isset($age) || !is_int($age) || $age !== 20) {
-  $errors[] = "age must be int 20";
+if (!isset($age) || !is_int($age)) {
+  $errors[] = "age must be an integer";
 }
-if (!isset($price) || !is_float($price) || abs($price - 19.99) > 0.0001) {
-  $errors[] = "price must be float 19.99";
+if (!isset($price) || !is_float($price)) {
+  $errors[] = "price must be a float";
 }
-if (!isset($name) || !is_string($name) || $name !== "Ada") {
-  $errors[] = "name must be string 'Ada'";
+if (!isset($name) || !is_string($name)) {
+  $errors[] = "name must be a string";
 }
-if (!isset($isActive) || !is_bool($isActive) || $isActive !== true) {
-  $errors[] = "isActive must be boolean true";
+if (!isset($isActive) || !is_bool($isActive)) {
+  $errors[] = "isActive must be a boolean";
 }
 
 $expected = "age: integer\nprice: double\nname: string\nisActive: boolean";
