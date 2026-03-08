@@ -27,6 +27,7 @@ require_once __DIR__ . '/partials/header.php';
 <p><a href="pages/manage-demo.php">Manage demo (copy/rename/delete)</a></p>
 <p><a href="pages/read-lines.php">Read lines (file)</a></p>
 <p><a href="pages/low-level-io.php">Low-level I/O (fopen/fwrite/fread)</a></p>
+<p><a href="pages/multiple-files.php">Multiple files (glob)</a></p>
 
 <h2>Sample Note: welcome.txt</h2>
 <pre><?php print htmlspecialchars($noteText, ENT_QUOTES, 'UTF-8'); ?></pre>
