@@ -1,0 +1,7 @@
+Welcome to Class 8.
+
+This week we are working with files and directories.
+
+- Read file contents with file_get_contents()
+- Write file contents with file_put_contents()
+- Work safely with paths using __DIR__
