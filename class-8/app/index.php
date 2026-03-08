@@ -29,6 +29,7 @@ require_once __DIR__ . '/partials/header.php';
 <p><a href="pages/low-level-io.php">Low-level I/O (fopen/fwrite/fread)</a></p>
 <p><a href="pages/multiple-files.php">Multiple files (glob)</a></p>
 <p><a href="pages/json-demo.php">JSON metadata (json_encode/json_decode)</a></p>
+<p><a href="pages/view-note.php">View notes safely (allowlist/realpath)</a></p>
 
 <h2>Sample Note: welcome.txt</h2>
 <pre><?php print htmlspecialchars($noteText, ENT_QUOTES, 'UTF-8'); ?></pre>
