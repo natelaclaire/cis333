@@ -12,6 +12,27 @@ multiple files, and working with formats like JSON.
 
 This week we will cover the chapter by building a small file-based web app.
 
+## High-Level Overview: Why Files and Folders Matter in PHP
+
+In many real-world PHP applications, the filesystem is part of your
+application's "toolbox" for persistence and organization.
+
+Common reasons you might work with files and directories:
+
+- Data storage without a database (small apps, prototypes, or simple content)
+- Configuration files (for example JSON files that store settings)
+- Logging and debugging output (writing activity or error logs)
+- Caching (saving expensive-to-compute results to disk for reuse)
+- Import/export (reading and writing CSV/JSON/text files)
+
+Working with the filesystem also introduces new responsibilities:
+
+- Paths must be handled safely (avoid path traversal and accidental overwrites)
+- File operations can fail (permissions, missing files, locked files), so you
+  need to check return values and handle errors
+- Apps should use predictable paths (often based on `__DIR__`) rather than
+  relying on the current working directory
+
 ## Project: File-Based Notes Library (No or Simple Forms)
 
 We will build a server-rendered app that reads and writes notes stored on
