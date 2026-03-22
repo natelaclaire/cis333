@@ -49,6 +49,7 @@ require_once __DIR__ . '/partials/header.php';
 <ul>
     <li><a href="/pages/query-demo.php">Query string demo page</a> (9.3)</li>
     <li><a href="/pages/response-demo.php">Response demo page</a> (9.4)</li>
+    <li><a href="/pages/redirect-demo.php">Redirect demo page</a> (9.5)</li>
     <li><a href="?name=Nate">Add a query string</a> (we will work with this in 9.3)</li>
     <li><a href="/">Reload the page</a> to create a new request (timestamp below will change)</li>
 </ul>
