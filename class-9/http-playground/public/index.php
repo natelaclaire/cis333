@@ -52,6 +52,7 @@ require_once __DIR__ . '/../app/partials/header.php';
     <li><a href="/redirect">Redirect demo page</a> (9.5)</li>
     <li><a href="/sources">Request data sources page</a> (9.6)</li>
     <li><a href="/streams">Streams and wrappers demo page</a> (9.9)</li>
+    <li><a href="/remote-cache">Remote data + caching demo page</a> (9.10)</li>
     <li><a href="?name=Nate">Add a query string</a> (we will work with this in 9.3)</li>
 </ul>
 

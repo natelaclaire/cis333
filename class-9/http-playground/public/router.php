@@ -27,6 +27,7 @@ $routes = [
     '/response' => __DIR__ . '/../app/pages/response-demo.php',
     '/redirect' => __DIR__ . '/../app/pages/redirect-demo.php',
     '/redirect-handler' => __DIR__ . '/../app/pages/redirect-handler.php',
+    '/remote-cache' => __DIR__ . '/../app/pages/remote-cache-demo.php',
     '/streams' => __DIR__ . '/../app/pages/streams-demo.php',
     '/sources' => __DIR__ . '/../app/pages/request-sources.php',
 ];

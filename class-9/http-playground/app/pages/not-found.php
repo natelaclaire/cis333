@@ -33,6 +33,7 @@ require_once __DIR__ . '/../partials/header.php';
     <li><a href="/redirect">/redirect</a></li>
     <li><a href="/sources">/sources</a></li>
     <li><a href="/streams">/streams</a></li>
+    <li><a href="/remote-cache">/remote-cache</a></li>
 </ul>
 
 <?php
