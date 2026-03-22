@@ -47,6 +47,7 @@ require_once __DIR__ . '/partials/header.php';
 
 <h2>Try It</h2>
 <ul>
+    <li><a href="/pages/query-demo.php">Query string demo page</a> (9.3)</li>
     <li><a href="?name=Nate">Add a query string</a> (we will work with this in 9.3)</li>
     <li><a href="/">Reload the page</a> to create a new request (timestamp below will change)</li>
 </ul>
