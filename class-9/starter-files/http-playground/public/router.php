@@ -2,7 +2,7 @@
 // Router script for the Class 9 starter-files HTTP Playground.
 //
 // Usage:
-//   php -S localhost:8000 -t class-9/starter-files/http-playground/public class-9/starter-files/http-playground/public/router.php
+//   php -S localhost:8080 -t class-9/starter-files/http-playground/public class-9/starter-files/http-playground/public/router.php
 
 $uri = $_SERVER['REQUEST_URI'] ?? '/';
 $path = parse_url($uri, PHP_URL_PATH);

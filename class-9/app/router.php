@@ -2,7 +2,7 @@
 // Router script for PHP's built-in dev server.
 //
 // Usage:
-//   php -S localhost:8000 -t class-9/app class-9/app/router.php
+//   php -S localhost:8080 -t class-9/app class-9/app/router.php
 //
 // This lets us demonstrate simple routing (mapping paths to handlers) without
 // introducing a full framework.

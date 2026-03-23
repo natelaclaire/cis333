@@ -22,7 +22,7 @@
 
 $source = 'local'; // change to 'remote' to try the real dataset
 
-$dataUrlRemote = 'https://www.maine.gov/labor/cwri/laus/Population1960_2000.csv';
+$dataUrlRemote = 'http://natelaclaire.me/cis333/class-10/maine-population-by-town-1960-2000.csv';
 $dataUrlLocal = 'file://' . __DIR__ . '/../data/maine-population-sample.csv';
 
 $dataUrl = $source === 'remote' ? $dataUrlRemote : $dataUrlLocal;

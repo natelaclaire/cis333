@@ -1,5 +1,5 @@
 <?php
-$pageTitle = 'Class 9 Reinforcement Exercises';
+$pageTitle = 'Class 9';
 
 require_once __DIR__ . '/../app/lib/functions.php';
 require_once __DIR__ . '/../app/partials/header.php';
@@ -22,7 +22,7 @@ require_once __DIR__ . '/../app/partials/header.php';
     Run the dev server from the repository root with:
 </p>
 
-<pre><code>php -S localhost:8000 -t class-9/starter-files/http-playground/public class-9/starter-files/http-playground/public/router.php</code></pre>
+<pre><code>php -S localhost:8080 -t class-9/starter-files/http-playground/public class-9/starter-files/http-playground/public/router.php</code></pre>
 
 <?php
 require_once __DIR__ . '/../app/partials/footer.php';
