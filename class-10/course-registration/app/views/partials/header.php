@@ -24,6 +24,7 @@
         <div class="navbar-nav">
             <a class="nav-link" href="/">Home</a>
             <a class="nav-link" href="/courses">Courses</a>
+            <a class="nav-link" href="/registrations">Registrations</a>
             <a class="nav-link" href="/debug/get">Debug GET</a>
             <a class="nav-link" href="/debug/post">Debug POST</a>
             <a class="nav-link" href="/debug/storage">Debug Storage</a>
