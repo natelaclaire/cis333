@@ -25,6 +25,7 @@
             <a class="nav-link" href="/">Home</a>
             <a class="nav-link" href="/debug/get">Debug GET</a>
             <a class="nav-link" href="/debug/post">Debug POST</a>
+            <a class="nav-link" href="/debug/storage">Debug Storage</a>
         </div>
     </div>
 </nav>

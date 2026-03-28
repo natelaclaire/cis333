@@ -25,6 +25,7 @@ $routes = [
     '/debug/get' => __DIR__ . '/../app/views/pages/debug-get.php',
     '/debug/post' => __DIR__ . '/../app/views/pages/debug-post.php',
     '/debug/post-result' => __DIR__ . '/../app/views/pages/debug-post-result.php',
+    '/debug/storage' => __DIR__ . '/../app/views/pages/debug-storage.php',
 ];
 
 $target = $routes[$path] ?? '';
