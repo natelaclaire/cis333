@@ -17,7 +17,7 @@ function serverString(string $key, string $default = ''): string
 function getString(string $key, string $default = ''): string
 {
     // Prefer filter_input() over reading from $_GET directly.
-    $value = filter_input(INPUT_GET, $key, FILTER_SANITIZE_SPECIAL_CHARS);
+    $value = filter_input(INPUT_GET, $key, FILTER_UNSAFE_RAW);
     if ($value === null || $value === false) {
         return $default;
     }
@@ -28,7 +28,7 @@ function getString(string $key, string $default = ''): string
 function postString(string $key, string $default = ''): string
 {
     // Prefer filter_input() over reading from $_POST directly.
-    $value = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
+    $value = filter_input(INPUT_POST, $key, FILTER_UNSAFE_RAW);
     if ($value === null || $value === false) {
         return $default;
     }
@@ -39,12 +39,12 @@ function postString(string $key, string $default = ''): string
 function postBool(string $key): bool
 {
     // Checkboxes that are unchecked are usually missing from the request.
-    return filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS) !== null;
+    return filter_input(INPUT_POST, $key, FILTER_UNSAFE_RAW) !== null;
 }
 
 function postArray(string $key): array
 {
-    $value = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY);
+    $value = filter_input(INPUT_POST, $key, FILTER_UNSAFE_RAW, FILTER_REQUIRE_ARRAY);
     return is_array($value) ? $value : [];
 }
 

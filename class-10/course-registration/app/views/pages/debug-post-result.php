@@ -5,7 +5,7 @@ require_once __DIR__ . '/../../lib/functions.php';
 
 $saved = getString('saved') === '1';
 $message = getString('message');
-$getData = filter_input_array(INPUT_GET, FILTER_SANITIZE_SPECIAL_CHARS) ?? [];
+$getData = filter_input_array(INPUT_GET, FILTER_UNSAFE_RAW) ?? [];
 
 require_once __DIR__ . '/../partials/header.php';
 ?>
