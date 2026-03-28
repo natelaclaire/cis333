@@ -5,11 +5,6 @@ if (!file_exists($studentFile)) {
     exit(1);
 }
 
-if (function_exists('header_remove')) {
-    header_remove();
-}
-http_response_code(200);
-
 $_SERVER['REQUEST_METHOD'] = 'GET';
 
 ob_start();
@@ -18,31 +13,33 @@ $output = trim(ob_get_clean());
 
 $errors = [];
 
-$data = json_decode($output, true);
-if (!is_array($data)) {
-    $errors[] = 'output must be valid JSON object';
+if (!isset($statusCode) || $statusCode !== 200) {
+    $errors[] = 'statusCode must be 200';
+}
+
+if (!isset($contentType) || $contentType !== 'application/json; charset=UTF-8') {
+    $errors[] = 'contentType must be application/json; charset=UTF-8';
+}
+
+if (!isset($payload) || !is_array($payload)) {
+    $errors[] = 'payload must be an array';
 } else {
-    if (($data['ok'] ?? null) !== true) {
-        $errors[] = 'ok must be true';
+    if (($payload['ok'] ?? null) !== true) {
+        $errors[] = 'payload[ok] must be true';
     }
-    if (!isset($data['time']) || !is_string($data['time']) || $data['time'] === '') {
-        $errors[] = 'time must be a non-empty string';
+    if (!isset($payload['time']) || !is_string($payload['time']) || $payload['time'] === '') {
+        $errors[] = 'payload[time] must be a non-empty string';
     }
-    if (($data['method'] ?? null) !== 'GET') {
-        $errors[] = 'method must be GET';
-    }
-}
-
-$headers = headers_list();
-$hasJson = false;
-foreach ($headers as $headerLine) {
-    if (stripos($headerLine, 'Content-Type: application/json') === 0) {
-        $hasJson = true;
+    if (($payload['method'] ?? null) !== 'GET') {
+        $errors[] = 'payload[method] must be GET';
     }
 }
 
-if (!$hasJson) {
-    $errors[] = 'missing Content-Type: application/json header';
+$decoded = json_decode($output, true);
+if (!is_array($decoded)) {
+    $errors[] = 'output must be valid JSON';
+} elseif ($decoded !== $payload) {
+    $errors[] = 'output JSON must match the payload array';
 }
 
 if (!empty($errors)) {

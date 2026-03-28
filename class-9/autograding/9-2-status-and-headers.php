@@ -5,11 +5,6 @@ if (!file_exists($studentFile)) {
     exit(1);
 }
 
-if (function_exists('header_remove')) {
-    header_remove();
-}
-http_response_code(200);
-
 ob_start();
 require $studentFile;
 $output = trim(ob_get_clean());
@@ -32,27 +27,46 @@ foreach ($expectedLines as $expectedLine) {
     $pos = $next + strlen($expectedLine);
 }
 
-if (http_response_code() !== 418) {
-    $errors[] = 'http_response_code must be 418';
-}
-
-$headers = headers_list();
-$hasContentType = false;
-$hasExerciseHeader = false;
-foreach ($headers as $headerLine) {
-    if (stripos($headerLine, 'Content-Type:') === 0) {
-        $hasContentType = true;
+if (!isset($result) || !is_array($result)) {
+    $errors[] = 'result must be an array';
+} else {
+    if (($result['status'] ?? null) !== 418) {
+        $errors[] = 'result[status] must be 418';
     }
-    if (stripos($headerLine, 'X-Exercise: 9-2') === 0) {
-        $hasExerciseHeader = true;
-    }
-}
 
-if (!$hasContentType) {
-    $errors[] = 'missing Content-Type header';
-}
-if (!$hasExerciseHeader) {
-    $errors[] = 'missing X-Exercise: 9-2 header';
+    $headers = $result['headers'] ?? null;
+    if (!is_array($headers)) {
+        $errors[] = 'result[headers] must be an array of strings';
+    } else {
+        $hasContentType = false;
+        $hasExerciseHeader = false;
+        $hasCacheControl = false;
+
+        foreach ($headers as $headerLine) {
+            if (!is_string($headerLine)) {
+                continue;
+            }
+            if (stripos($headerLine, 'Content-Type: text/plain;') === 0) {
+                $hasContentType = true;
+            }
+            if (stripos($headerLine, 'X-Exercise: 9-2') === 0) {
+                $hasExerciseHeader = true;
+            }
+            if (stripos($headerLine, 'Cache-Control: no-store') === 0) {
+                $hasCacheControl = true;
+            }
+        }
+
+        if (!$hasContentType) {
+            $errors[] = 'missing Content-Type: text/plain; charset=UTF-8 header in result[headers]';
+        }
+        if (!$hasExerciseHeader) {
+            $errors[] = 'missing X-Exercise: 9-2 header in result[headers]';
+        }
+        if (!$hasCacheControl) {
+            $errors[] = 'missing Cache-Control: no-store header in result[headers]';
+        }
+    }
 }
 
 if (!empty($errors)) {
