@@ -22,6 +22,9 @@ if (is_file($publicPath)) {
 
 $routes = [
     '/' => __DIR__ . '/../app/views/pages/home.php',
+    '/courses' => __DIR__ . '/../app/views/pages/courses-index.php',
+    '/courses/new' => __DIR__ . '/../app/views/pages/courses-new.php',
+    '/courses/create' => __DIR__ . '/../app/views/pages/courses-create.php',
     '/debug/get' => __DIR__ . '/../app/views/pages/debug-get.php',
     '/debug/post' => __DIR__ . '/../app/views/pages/debug-post.php',
     '/debug/post-result' => __DIR__ . '/../app/views/pages/debug-post-result.php',
