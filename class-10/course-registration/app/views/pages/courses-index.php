@@ -8,6 +8,7 @@ $courses = $data['courses'];
 
 $created = getString('created') === '1';
 $updated = getString('updated') === '1';
+$deleted = getString('deleted') === '1';
 
 require_once __DIR__ . '/../partials/header.php';
 ?>
@@ -18,6 +19,10 @@ require_once __DIR__ . '/../partials/header.php';
 
 <?php if ($updated) : ?>
     <div class="alert alert-success">Course updated.</div>
+<?php endif; ?>
+
+<?php if ($deleted) : ?>
+    <div class="alert alert-success">Course deleted.</div>
 <?php endif; ?>
 
 <div class="d-flex align-items-center justify-content-between mb-3">

@@ -27,6 +27,7 @@ $routes = [
     '/courses/create' => __DIR__ . '/../app/views/pages/courses-create.php',
     '/courses/edit' => __DIR__ . '/../app/views/pages/courses-edit.php',
     '/courses/update' => __DIR__ . '/../app/views/pages/courses-update.php',
+    '/courses/delete' => __DIR__ . '/../app/views/pages/courses-delete.php',
     '/debug/get' => __DIR__ . '/../app/views/pages/debug-get.php',
     '/debug/post' => __DIR__ . '/../app/views/pages/debug-post.php',
     '/debug/post-result' => __DIR__ . '/../app/views/pages/debug-post-result.php',

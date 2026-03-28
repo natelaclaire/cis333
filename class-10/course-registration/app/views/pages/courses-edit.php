@@ -30,6 +30,7 @@ if (!is_array($course)) {
 }
 
 $missing = getString('missing') === '1';
+$blocked = getString('blocked') === '1';
 
 $code = is_string($course['code'] ?? null) ? $course['code'] : '';
 $title = is_string($course['title'] ?? null) ? $course['title'] : '';
@@ -50,6 +51,13 @@ require_once __DIR__ . '/../partials/header.php';
     <div class="alert alert-warning">
         Please provide both a course code and a title.
         (We will cover proper validation and sticky forms next week.)
+    </div>
+<?php endif; ?>
+
+<?php if ($blocked) : ?>
+    <div class="alert alert-danger">
+        This course cannot be deleted because registrations exist for it.
+        For now, delete the registrations first (we will build registration screens soon).
     </div>
 <?php endif; ?>
 
@@ -151,6 +159,16 @@ require_once __DIR__ . '/../partials/header.php';
     </div>
 </form>
 
+<form
+    method="post"
+    action="/courses/delete"
+    class="mt-3"
+    onsubmit="return confirm('Delete this course? This cannot be undone.');"
+>
+    <input type="hidden" name="id" value="<?php print h($id); ?>">
+    <button class="btn btn-outline-danger" type="submit">Delete course</button>
+</form>
+
 <p class="text-muted mt-3">
     This form is "sticky" only in the sense that it is pre-filled from stored JSON data.
     Next week we will cover sticky forms for failed submissions (preserving what the user typed after errors).
@@ -158,4 +176,3 @@ require_once __DIR__ . '/../partials/header.php';
 
 <?php
 require_once __DIR__ . '/../partials/footer.php';
-
