@@ -20,12 +20,9 @@ $credits = (int) postString('credits', '3');
 
 $delivery = postString('delivery', 'in_person');
 
-$active = isset($_POST['active']);
+$active = postBool('active');
 
-$meetingDays = $_POST['meetingDays'] ?? [];
-if (!is_array($meetingDays)) {
-    $meetingDays = [];
-}
+$meetingDays = postArray('meetingDays');
 $meetingDays = array_values(
     array_filter(
         $meetingDays,

@@ -115,7 +115,7 @@ require_once __DIR__ . '/../partials/header.php';
 
 <p class="text-muted mt-3">
     We'll cover full validation and sticky forms next week. For now, we are focusing on what different input
-    types look like in <code>$_POST</code> and how to process them.
+    types look like when retrieved via <code>filter_input()</code> and how to process them.
 </p>
 
 <?php

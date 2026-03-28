@@ -5,6 +5,7 @@ require_once __DIR__ . '/../../lib/functions.php';
 
 $q = getString('q');
 $department = getString('department');
+$getData = filter_input_array(INPUT_GET, FILTER_SANITIZE_SPECIAL_CHARS) ?? [];
 
 require_once __DIR__ . '/../partials/header.php';
 ?>
@@ -44,7 +45,7 @@ require_once __DIR__ . '/../partials/header.php';
 </form>
 
 <h2 class="h5 mt-4">PHP View</h2>
-<pre><?php var_dump($_GET); ?></pre>
+<pre><?php var_dump($getData); ?></pre>
 
 <?php
 require_once __DIR__ . '/../partials/footer.php';

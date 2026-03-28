@@ -19,7 +19,7 @@ application.
 Key ideas we will practice:
 
 - GET vs POST (query string vs request body)
-- reading request data (`$_GET`, `$_POST`)
+- retrieving request data with `filter_input()` / `filter_input_array()`
 - output escaping (prevent XSS)
 - PRG (Post-Redirect-Get) to avoid duplicate submissions
 - form input types and what they look like in PHP (text, date, radio, checkbox, select)
