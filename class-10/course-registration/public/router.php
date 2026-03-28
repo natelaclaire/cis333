@@ -31,6 +31,7 @@ $routes = [
     '/registrations' => __DIR__ . '/../app/views/pages/registrations-index.php',
     '/registrations/new' => __DIR__ . '/../app/views/pages/registrations-new.php',
     '/registrations/create' => __DIR__ . '/../app/views/pages/registrations-create.php',
+    '/registrations/delete' => __DIR__ . '/../app/views/pages/registrations-delete.php',
     '/debug/get' => __DIR__ . '/../app/views/pages/debug-get.php',
     '/debug/post' => __DIR__ . '/../app/views/pages/debug-post.php',
     '/debug/post-result' => __DIR__ . '/../app/views/pages/debug-post-result.php',
