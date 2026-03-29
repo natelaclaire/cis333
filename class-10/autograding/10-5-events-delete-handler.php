@@ -13,6 +13,7 @@ $seed = [
         [
             'id' => 'e_test3',
             'title' => 'Delete Me',
+            'contactEmail' => 'x@example.com',
             'description' => '',
             'eventDate' => '2026-04-05',
             'category' => 'arts',
@@ -61,4 +62,3 @@ if (!empty($errors)) {
 }
 
 print 'PASS' . PHP_EOL;
-

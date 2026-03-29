@@ -23,6 +23,7 @@ if (strpos($output, 'action="/ex/events/create"') === false && strpos($output, "
 
 $requiredPieces = [
     'name="title"' => 'missing text input name="title"',
+    'name="contactEmail"' => 'missing email input name="contactEmail"',
     'name="description"' => 'missing textarea name="description"',
     'name="eventDate"' => 'missing date input name="eventDate"',
     'name="category"' => 'missing select name="category"',
@@ -37,10 +38,23 @@ foreach ($requiredPieces as $needle => $message) {
     }
 }
 
+// Check that students added postEmail() to functions.php and that it sanitizes.
+$functionsFile = $projectRoot . '/app/lib/functions.php';
+require_once $functionsFile;
+
+if (!function_exists('postEmail')) {
+    $errors[] = 'missing function postEmail() in app/lib/functions.php';
+} else {
+    $_POST = ['contactEmail' => ' bob()@exa mple.com '];
+    $sanitized = postEmail('contactEmail');
+    if ($sanitized !== 'bob@example.com') {
+        $errors[] = 'postEmail() must sanitize using FILTER_SANITIZE_EMAIL (expected bob@example.com)';
+    }
+}
+
 if (!empty($errors)) {
     print 'FAIL' . PHP_EOL . implode(PHP_EOL, $errors) . PHP_EOL;
     exit(1);
 }
 
 print 'PASS' . PHP_EOL;
-

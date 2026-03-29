@@ -13,6 +13,7 @@ $seed = [
         [
             'id' => 'e_test1',
             'title' => '<script>alert(1)</script>',
+            'contactEmail' => 'bob@example.com',
             'description' => 'desc',
             'eventDate' => '2026-04-01',
             'category' => 'tech',
@@ -37,6 +38,9 @@ if (strpos($output, '<script>alert(1)</script>') !== false) {
 if (strpos($output, '&lt;script&gt;alert(1)&lt;/script&gt;') === false) {
     $errors[] = 'expected escaped title (&lt;script&gt;...) not found';
 }
+if (strpos($output, 'bob@example.com') === false) {
+    $errors[] = 'missing contact email (bob@example.com) in the events table';
+}
 if (strpos($output, '/ex/events/edit?id=') === false) {
     $errors[] = 'missing Edit link to /ex/events/edit?id=...';
 }
@@ -47,4 +51,3 @@ if (!empty($errors)) {
 }
 
 print 'PASS' . PHP_EOL;
-

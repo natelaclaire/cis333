@@ -49,6 +49,7 @@ require_once __DIR__ . '/../partials/header.php';
             <thead>
             <tr>
                 <th>Title</th>
+                <th>Contact email</th>
                 <th>Date</th>
                 <th>Category</th>
                 <th>Format</th>
@@ -64,6 +65,7 @@ require_once __DIR__ . '/../partials/header.php';
                 // Recommended keys:
                 // - id (string)
                 // - title (string)
+                // - contactEmail (string)
                 // - eventDate (string)
                 // - category (string)
                 // - format (string)
@@ -71,6 +73,7 @@ require_once __DIR__ . '/../partials/header.php';
                 // - tags (array of strings)
                 ?>
                 <tr>
+                    <td><?php print h('TODO'); ?></td>
                     <td><?php print h('TODO'); ?></td>
                     <td><?php print h('TODO'); ?></td>
                     <td><?php print h('TODO'); ?></td>
@@ -91,4 +94,3 @@ require_once __DIR__ . '/../partials/header.php';
 
 <?php
 require_once __DIR__ . '/../partials/footer.php';
-

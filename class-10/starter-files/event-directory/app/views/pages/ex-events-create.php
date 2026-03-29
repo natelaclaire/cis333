@@ -15,13 +15,14 @@ if (serverString('REQUEST_METHOD') !== 'POST') {
 }
 
 // TODO (Exercise 10-3):
-// - Retrieve inputs using postString(), postBool(), postArray().
+// - Retrieve inputs using postString(), postEmail(), postBool(), postArray().
 // - Append a new event into $data['events'] and saveData($data).
 // - Redirect (PRG) to /ex/events?created=1 with redirectTo('/ex/events?created=1', 303).
 //
 // Recommended event keys:
 // - id (string) via newId('e')
 // - title (string)
+// - contactEmail (string, sanitized with postEmail())
 // - description (string)
 // - eventDate (string, YYYY-MM-DD)
 // - category (string)
@@ -31,4 +32,3 @@ if (serverString('REQUEST_METHOD') !== 'POST') {
 
 // Temporary placeholder so the file runs before you implement it.
 return redirectTo('/ex/events?created=1', 303);
-

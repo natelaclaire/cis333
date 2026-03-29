@@ -13,6 +13,7 @@ file_put_contents($dataFile, json_encode(['events' => []], JSON_PRETTY_PRINT) . 
 $_SERVER['REQUEST_METHOD'] = 'POST';
 $_POST = [
     'title' => 'PHP Meetup',
+    'contactEmail' => ' bob()@exa mple.com ',
     'description' => 'A meetup about PHP.',
     'eventDate' => '2026-04-02',
     'category' => 'tech',
@@ -45,6 +46,9 @@ if (!is_array($events) || count($events) !== 1) {
         if (($event['title'] ?? null) !== 'PHP Meetup') {
             $errors[] = 'saved event title mismatch';
         }
+        if (($event['contactEmail'] ?? null) !== 'bob@example.com') {
+            $errors[] = 'saved event contactEmail must be sanitized (expected bob@example.com)';
+        }
         if (($event['eventDate'] ?? null) !== '2026-04-02') {
             $errors[] = 'saved event eventDate mismatch';
         }
@@ -64,4 +68,3 @@ if (!empty($errors)) {
 }
 
 print 'PASS' . PHP_EOL;
-

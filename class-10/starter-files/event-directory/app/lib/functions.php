@@ -67,6 +67,10 @@ function postArray(string $key): array
     return is_array($value) ? $value : [];
 }
 
+// TODO (Exercise 10-2):
+// Add a function postEmail(string $key, string $default = ''): string
+// that uses FILTER_SANITIZE_EMAIL (and falls back to $_POST in CLI like postString()).
+
 function redirectTo(string $path, int $status = 302): string
 {
     // In the browser, perform a real redirect. In CLI (autograding), return the path.
@@ -77,4 +81,3 @@ function redirectTo(string $path, int $status = 302): string
 
     return $path;
 }
-

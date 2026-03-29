@@ -16,6 +16,7 @@ if (serverString('REQUEST_METHOD') !== 'POST') {
 
 // TODO (Exercise 10-4):
 // - Retrieve the event id (postString('id')) and other fields using helpers.
+//   (Use postEmail('contactEmail') for the contact email.)
 // - Find the event in $data['events'] and replace/update it.
 // - Save JSON and redirect to /ex/events?updated=1 with redirectTo(..., 303).
 //
@@ -24,4 +25,3 @@ if (serverString('REQUEST_METHOD') !== 'POST') {
 // - eventDate required
 
 return redirectTo('/ex/events?updated=1', 303);
-

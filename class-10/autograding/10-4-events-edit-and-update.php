@@ -18,6 +18,7 @@ $seed = [
         [
             'id' => 'e_test2',
             'title' => 'Old Title',
+            'contactEmail' => 'old@example.com',
             'description' => 'Old desc',
             'eventDate' => '2026-04-03',
             'category' => 'community',
@@ -43,12 +44,16 @@ if (strpos($output, 'name="id"') === false || strpos($output, 'value="e_test2"')
 if (strpos($output, 'Old Title') === false) {
     $errors[] = 'edit page must be pre-filled with the existing title (Old Title not found in HTML)';
 }
+if (strpos($output, 'old@example.com') === false) {
+    $errors[] = 'edit page must be pre-filled with the existing contactEmail (old@example.com not found in HTML)';
+}
 
 // Now simulate an update.
 $_SERVER['REQUEST_METHOD'] = 'POST';
 $_POST = [
     'id' => 'e_test2',
     'title' => 'New Title',
+    'contactEmail' => ' new()@exa mple.com ',
     'description' => 'New desc',
     'eventDate' => '2026-04-04',
     'category' => 'tech',
@@ -72,6 +77,9 @@ if (!is_array($events) || count($events) !== 1) {
     if (($event['title'] ?? null) !== 'New Title') {
         $errors[] = 'event title was not updated';
     }
+    if (($event['contactEmail'] ?? null) !== 'new@example.com') {
+        $errors[] = 'contactEmail must be sanitized and updated (expected new@example.com)';
+    }
     if (($event['eventDate'] ?? null) !== '2026-04-04') {
         $errors[] = 'eventDate was not updated';
     }
@@ -86,4 +94,3 @@ if (!empty($errors)) {
 }
 
 print 'PASS' . PHP_EOL;
-

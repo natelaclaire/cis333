@@ -21,6 +21,7 @@ require_once __DIR__ . '/../partials/header.php';
 //
 // Include these inputs (with correct name attributes):
 // - text: title
+// - email: contactEmail
 // - textarea: description
 // - date: eventDate
 // - select: category
@@ -37,4 +38,3 @@ require_once __DIR__ . '/../partials/header.php';
 
 <?php
 require_once __DIR__ . '/../partials/footer.php';
-
