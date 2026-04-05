@@ -1,0 +1,16 @@
+{
+    "applications": [
+        {
+            "id": "ga_3839fe748374",
+            "createdAt": "2026-04-05T01:44:45+00:00",
+            "applicantName": "Nate LaClaire",
+            "contactEmail": "nathaniel.laclaire@maine.edu",
+            "organizationName": "University of Maine at Augusta",
+            "requestedAmount": 1000000,
+            "category": "education",
+            "projectSummary": "this is a test of the form to see if it works",
+            "websiteUrl": "",
+            "agreeToTerms": true
+        }
+    ]
+}
