@@ -1,5 +1,5 @@
 <?php
-// Exercise 11-3: read request values using the field spec.
+// Exercise 11-3: sanitize the new fields.
 
 require_once __DIR__ . '/functions.php';
 
@@ -65,6 +65,19 @@ function readValue(string $name, array $field): string|array|bool
         $allowed = is_array($field['options'] ?? null) ? array_keys($field['options']) : [];
         return in_array($value, $allowed, true) ? $value : '';
     }
+
+    // TODO (Exercise 11-3): implement sanitization for the new fields in the spec:
+    // - Apply appropriate sanitization filters to the new fields in the spec so
+    //   that they are sanitized when retrieved in `readValues()`. For example:
+    //   - For `projectDate`, you could indicate in the spec to sanitize using
+    //     `FILTER_SANITIZE_NUMBER_INT` since it's a date field and we can assume
+    //     that the browser will only send numeric digits and hyphens, which are
+    //     allowed by the filter (the plus sign is allowed as well, but we can
+    //     leave it up to validation to handle that).
+    //   - For `phoneNumber`, you might also use `FILTER_SANITIZE_NUMBER_INT` if
+    //     you are using the US phone number format described above, but if you
+    //     choose to allow other formats, you might end up wanting to create
+    //     type-specific sanitization logic in the `readValue()` function.
 
     // For other field types, we will apply sanitization based on the spec and return the sanitized string value.
     $sanitize = $field['sanitize']['filter'] ?? FILTER_UNSAFE_RAW;

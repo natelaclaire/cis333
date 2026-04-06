@@ -1,21 +1,48 @@
 <?php
-// Exercise 11-2: define the grant application field spec.
+// Exercise 11-1: add fields to the grant application field spec.
+// Exercise 11-3: implement sanitization for the new fields in the spec.
 
 require_once __DIR__ . '/functions.php';
 
 function grantFields(): array
 {
-    // TODO (Exercise 11-2): build and return the full field spec array.
-    //
-    // Required fields:
-    // - applicantName (text, required, min/max length, HTML5 required)
-    // - contactEmail (email, required, sanitize email, validate email)
-    // - organizationName (text, required)
-    // - requestedAmount (text/number, required, validate int range)
-    // - category (select, required, allowed values)
-    // - projectSummary (textarea, required, min/max length)
-    // - websiteUrl (url, optional, sanitize URL, validate URL if present)
-    // - agreeToTerms (checkbox, must be checked)
+    // TODO (Exercise 11-1): add two new fields to the spec:
+    // - `projectDate`
+    //   - *Label*: Anticipated project initiation date
+    //   - *Type*: date
+    //   - *Required*: yes
+    //   - *Validation*: add a `date` rule to the `rules` array with a
+    //     value of `true` to validate that the input is a valid date format
+    //     and add a `min` rule with a value of today’s date to ensure the
+    //     date is not in the past (use `date('Y-m-d')` in PHP)
+    //   - *HTML5 UX*: add `min` attribute to the `html` array set to today’s
+    //     date (like above, use `date('Y-m-d')` in PHP)
+    // - `phoneNumber`
+    //   - *Label*: Contact phone number
+    //   - *Type*: tel
+    //   - *Required*: no
+    //   - *Validation*: add a `pattern` rule for a valid phone number format
+    //     (use a regex pattern, such as `\d{3}-\d{3}-\d{4}` for US numbers)
+    //   - *HTML5 UX*: Add a `pattern` attribute to the `html` array to help
+    //     users enter a valid phone number format (e.g. `\d{3}-\d{3}-\d{4}`
+    //     for US numbers)
+    //   - *Placeholder*: Add a `placeholder` attribute to the `html` array
+    //     to show an example format that matches your pattern (e.g.
+    //     `123-456-7890`)
+
+    // TODO (Exercise 11-3): implement sanitization for the new fields in the spec:
+    // - Apply appropriate sanitization filters to the new fields in the spec so
+    //   that they are sanitized when retrieved in `readValues()`. For example:
+    //   - For `projectDate`, you could indicate in the spec to sanitize using
+    //     `FILTER_SANITIZE_NUMBER_INT` since it's a date field and we can assume
+    //     that the browser will only send numeric digits and hyphens, which are
+    //     allowed by the filter (the plus sign is allowed as well, but we can
+    //     leave it up to validation to handle that).
+    //   - For `phoneNumber`, you might also use `FILTER_SANITIZE_NUMBER_INT` if
+    //     you are using the US phone number format described above, but if you
+    //     choose to allow other formats, you might end up wanting to create
+    //     type-specific sanitization logic in the `readValue()` function.
+
     return [
         'applicantName' => [
             'label' => 'Applicant Name',

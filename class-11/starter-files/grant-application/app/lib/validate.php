@@ -1,21 +1,10 @@
 <?php
-// Exercise 11-4: validate values using the field spec.
+// Exercise 11-2: add validation rules for the new fields.
 
 require_once __DIR__ . '/functions.php';
 
 function validateValues(array $fields, array $values): array
 {
-    // Implement the rule types needed by your spec:
-    // - required
-    // - minLength / maxLength
-    // - email (validate email format)
-    // - url (validate URL format if present)
-    // - integer (validate integer format)
-    // - float (validate float format)
-    // - min/max (within a numeric range)
-    // - requiredTrue (checkbox must be checked)
-    // - match (matches the value of another field, e.g. for confirm email or password)
-
     $errors = [];
     foreach ($fields as $name => $field) {
         if (!is_string($name) || !is_array($field)) {
@@ -63,6 +52,16 @@ function validateValues(array $fields, array $values): array
             continue;
         }
 
+        // TODO (Exercise 11-2): new min and max rules for date values:
+        // - Update the current `min` and `max` rules so that they only apply
+        //   to fields with a type of `number`.
+        // - Add new `min` and `max` rules that apply only to fields with a
+        //   type of `date`, using `strtotime()` to compare the input date
+        //   against the specified minimum and maximum dates - they should be
+        //   inclusive (`<=` and `>=`) and should be two separate rules. Based
+        //   on what you have learned so far, I would use `strtotime()` to convert
+        //   both the input date and the min/max dates to timestamps for comparison,
+        //   but there are other approaches.
         if (isset($field['rules']['min']) && is_numeric($value) && $value < $field['rules']['min']) {
             $errors[$name] = 'Must be at least ' . $field['rules']['min'] . '.';
             continue;
@@ -87,6 +86,16 @@ function validateValues(array $fields, array $values): array
                 continue;
             }
         }
+
+        // TODO (Exercise 11-2): implement validation for the new rules needed for
+        // the new fields in the spec:
+        // - For the `date` rule, check if the value is a valid date format (you
+        //   can use `strtotime()` to attempt to parse the date and check if it
+        //   returns a valid timestamp - it returns `false` if the date is invalid
+        //   or the number of seconds since the Unix Epoch otherwise).
+        // - For the `pattern` rule, use `preg_match()` to check if the value matches
+        //   the provided regex pattern.
+
 
         $errors[$name] = '';
     }

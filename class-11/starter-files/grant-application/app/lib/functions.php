@@ -1,5 +1,6 @@
 <?php
 // Helpers for the Class 11 grant application exercises.
+// Exercise 11-4: update buildApplicationRecord() to include the new fields in the spec.
 
 function h(string $value): string
 {
@@ -50,16 +51,16 @@ function postBool(string $key): bool
     return $value !== null;
 }
 
-// TODO (Exercise 11-1): implement postEmail() using FILTER_SANITIZE_EMAIL.
 function postEmail(string $key, string $default = ''): string
 {
-    return $default;
+    $value = filter_input(INPUT_POST, $key, FILTER_SANITIZE_EMAIL);
+    return $value !== false ? $value : $default;
 }
 
-// TODO (Exercise 11-1): implement postUrl() using FILTER_SANITIZE_URL.
 function postUrl(string $key, string $default = ''): string
 {
-    return $default;
+    $value = filter_input(INPUT_POST, $key, FILTER_SANITIZE_URL);
+    return $value !== false ? $value : $default;
 }
 
 function redirectTo(string $path, int $status = 302): string
@@ -74,6 +75,10 @@ function redirectTo(string $path, int $status = 302): string
 
 function buildApplicationRecord(array $values): array
 {
+    // TODO (Exercise 11-4): update buildApplicationRecord() to include
+    // the new fields in the spec:
+    // - Update the `buildApplicationRecord()` function to include the
+    //   new fields in the record that gets saved to JSON.
     return [
         'id' => 'ga_' . bin2hex(random_bytes(6)),
         'createdAt' => date(DATE_ATOM),
