@@ -8,9 +8,9 @@ require_once(APP_PATH.'app/lib/storage.php');
 
 $config = loadConfig();
 
-$page = '';
-if (isset($_GET['page']) && $_GET['page']!='') {
-    $page = trim($_GET['page']);
+$page = getString('page');
+if ($page !== '') {
+    $page = trim($page);
     $page = strtolower($page);
     $page = str_replace('_', '-', $page);
     $page = preg_replace('/[\\/\\\\:*?"<>|.]|\\s/', '', $page); // /[\/\\:*?"<>|.]|\s/
@@ -54,4 +54,3 @@ $pageContent = ob_get_clean();
 include(APP_PATH.'app/views/partials/header.php');
 echo $pageContent;
 include(APP_PATH.'app/views/partials/footer.php');
-return true;
