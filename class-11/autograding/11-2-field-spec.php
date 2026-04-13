@@ -1,86 +1,123 @@
 <?php
-$projectRoot = __DIR__ . '/../starter-files/grant-application';
+// Exercise 11-2 autograder: new validation rules (date, pattern, min/max behavior).
 
-$fieldsFile = $projectRoot . '/app/lib/fields.php';
-if (!file_exists($fieldsFile)) {
-    print 'Missing file: app/lib/fields.php' . PHP_EOL;
+$projectRoot = __DIR__ . '/../starter-files/grant-application';
+$validateFile = $projectRoot . '/app/lib/validate.php';
+
+if (!file_exists($validateFile)) {
+    print 'Missing file: app/lib/validate.php' . PHP_EOL;
     exit(1);
 }
 
-require_once $fieldsFile;
+require_once $validateFile;
 
 $errors = [];
 
-if (!function_exists('grantFields')) {
-    $errors[] = 'Missing function grantFields() in app/lib/fields.php';
+if (!function_exists('validateValues')) {
+    $errors[] = 'Missing function validateValues()';
 } else {
-    $fields = grantFields();
-    if (!is_array($fields) || $fields === []) {
-        $errors[] = 'grantFields() must return a non-empty array';
-    } else {
-        $requiredNames = [
-            'applicantName',
-            'contactEmail',
-            'organizationName',
-            'requestedAmount',
-            'category',
-            'projectSummary',
-            'websiteUrl',
-            'agreeToTerms',
-        ];
+    $today = date('Y-m-d');
 
-        foreach ($requiredNames as $name) {
-            if (!array_key_exists($name, $fields)) {
-                $errors[] = "Missing field spec for {$name}";
-            }
-        }
+    // Date rule + date min/max rules (inclusive)
+    $fields = [
+        'projectDate' => [
+            'label' => 'Project date',
+            'type' => 'date',
+            'rules' => [
+                'required' => true,
+                'date' => true,
+                'min' => $today,
+                'max' => $today, // for inclusive check, we'll vary value
+            ],
+        ],
+    ];
 
-        $email = $fields['contactEmail'] ?? null;
-        if (is_array($email)) {
-            $sanitize = $email['sanitize']['filter'] ?? null;
-            if ($sanitize !== FILTER_SANITIZE_EMAIL) {
-                $errors[] = 'contactEmail sanitize.filter must be FILTER_SANITIZE_EMAIL';
-            }
-            $rules = $email['rules'] ?? null;
-            if (!is_array($rules) || ($rules['required'] ?? null) !== true || ($rules['email'] ?? null) !== true) {
-                $errors[] = 'contactEmail rules must include required=true and email=true';
-            }
-            $html = $email['html'] ?? null;
-            if (!is_array($html) || ($html['required'] ?? null) !== true) {
-                $errors[] = 'contactEmail html must include required=true';
-            }
-        }
+    // Invalid date should error on date rule.
+    $errs = validateValues($fields, ['projectDate' => '2026-13-40']);
+    if (($errs['projectDate'] ?? '') === '') {
+        $errors[] = 'date rule must reject invalid date strings';
+    }
 
-        $category = $fields['category'] ?? null;
-        if (is_array($category)) {
-            $options = $category['options'] ?? null;
-            if (!is_array($options) || count($options) < 3) {
-                $errors[] = 'category options must be an array with at least 3 options';
-            }
-            $rules = $category['rules'] ?? null;
-            $allowed = is_array($rules) ? ($rules['in'] ?? null) : null;
-            if (!is_array($allowed) || count($allowed) < 3) {
-                $errors[] = 'category rules.in must be an allowlist array with at least 3 values';
-            }
-        }
+    // Date min inclusive: value == min should be ok.
+    $fields['projectDate']['rules']['max'] = $today;
+    $errs = validateValues($fields, ['projectDate' => $today]);
+    if (($errs['projectDate'] ?? '') !== '') {
+        $errors[] = 'date min/max rules must be inclusive (value equal to min/max should be valid)';
+    }
 
-        $terms = $fields['agreeToTerms'] ?? null;
-        if (is_array($terms)) {
-            if (($terms['type'] ?? null) !== 'checkbox') {
-                $errors[] = 'agreeToTerms type must be checkbox';
-            }
-            $rules = $terms['rules'] ?? null;
-            if (!is_array($rules) || ($rules['requiredTrue'] ?? null) !== true) {
-                $errors[] = 'agreeToTerms rules must include requiredTrue=true';
-            }
-        }
+    // Date min: yesterday should error.
+    $yesterday = date('Y-m-d', strtotime('-1 day'));
+    $fields['projectDate']['rules']['max'] = date('Y-m-d', strtotime('+30 day'));
+    $errs = validateValues($fields, ['projectDate' => $yesterday]);
+    if (($errs['projectDate'] ?? '') === '') {
+        $errors[] = 'date min rule must reject dates before the minimum';
+    }
+
+    // Date max: after max should error.
+    $afterMax = date('Y-m-d', strtotime('+40 day'));
+    $fields['projectDate']['rules']['max'] = date('Y-m-d', strtotime('+30 day'));
+    $errs = validateValues($fields, ['projectDate' => $afterMax]);
+    if (($errs['projectDate'] ?? '') === '') {
+        $errors[] = 'date max rule must reject dates after the maximum';
+    }
+
+    // Pattern rule
+    $fields2 = [
+        'phoneNumber' => [
+            'label' => 'Phone',
+            'type' => 'tel',
+            'rules' => [
+                'required' => false,
+                'pattern' => '/^\\d{3}-\\d{3}-\\d{4}$/',
+            ],
+        ],
+    ];
+
+    $errs = validateValues($fields2, ['phoneNumber' => '1234567890']);
+    if (($errs['phoneNumber'] ?? '') === '') {
+        $errors[] = 'pattern rule must reject values that do not match the regex';
+    }
+    $errs = validateValues($fields2, ['phoneNumber' => '123-456-7890']);
+    if (($errs['phoneNumber'] ?? '') !== '') {
+        $errors[] = 'pattern rule must accept values that match the regex';
+    }
+    $errs = validateValues($fields2, ['phoneNumber' => '']);
+    if (($errs['phoneNumber'] ?? '') !== '') {
+        $errors[] = 'pattern rule should not trigger for optional empty values';
+    }
+
+    // Min/max rules apply only to number fields
+    $fields3 = [
+        'amount' => [
+            'label' => 'Amount',
+            'type' => 'number',
+            'rules' => [
+                'min' => 10,
+                'max' => 20,
+            ],
+        ],
+        'notNumber' => [
+            'label' => 'Not number',
+            'type' => 'text',
+            'rules' => [
+                'min' => 10,
+                'max' => 20,
+            ],
+        ],
+    ];
+
+    $errs = validateValues($fields3, ['amount' => '5', 'notNumber' => '5']);
+    if (($errs['amount'] ?? '') === '') {
+        $errors[] = 'min rule must apply to number fields';
+    }
+    if (($errs['notNumber'] ?? '') !== '') {
+        $errors[] = 'min/max rules must not apply to non-number fields';
     }
 }
 
-if (!empty($errors)) {
+if ($errors !== []) {
     print 'FAIL' . PHP_EOL . implode(PHP_EOL, $errors) . PHP_EOL;
     exit(1);
 }
 
 print 'PASS' . PHP_EOL;
-

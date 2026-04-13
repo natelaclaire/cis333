@@ -1,58 +1,42 @@
 <?php
-$projectRoot = __DIR__ . '/../starter-files/grant-application';
+// Exercise 11-3 autograder: sanitization choices for the new fields.
+//
+// Note: `filter_input()` does not populate in PHP CLI, so this autograder checks the spec
+// (and expected filter choices) rather than executing readValues().
 
-require_once $projectRoot . '/app/lib/fields.php';
-require_once $projectRoot . '/app/lib/input.php';
+$projectRoot = __DIR__ . '/../starter-files/grant-application';
+$fieldsFile = $projectRoot . '/app/lib/fields.php';
+
+if (!file_exists($fieldsFile)) {
+    print 'Missing file: app/lib/fields.php' . PHP_EOL;
+    exit(1);
+}
+
+require_once $fieldsFile;
 
 $errors = [];
 
 $fields = grantFields();
 if (!is_array($fields) || $fields === []) {
-    $errors[] = 'grantFields() must return a spec array before readValues() can be graded';
-}
-
-$_SERVER['REQUEST_METHOD'] = 'POST';
-$_POST = [
-    'applicantName' => '  Ada Lovelace  ',
-    'contactEmail' => ' ada()@exa mple.com ',
-    'organizationName' => '  Analytical Engines  ',
-    'requestedAmount' => ' 1500 ',
-    'category' => 'education',
-    'projectSummary' => "  Hello world  ",
-    'websiteUrl' => ' https://exa mple.com/path?x=1 y=2 ',
-    // checkbox
-    'agreeToTerms' => '1',
-];
-
-$values = readValues($fields);
-
-if (!is_array($values)) {
-    $errors[] = 'readValues() must return an array';
+    $errors[] = 'grantFields() must return a spec array';
 } else {
-    if (($values['applicantName'] ?? null) !== 'Ada Lovelace') {
-        $errors[] = 'applicantName must be trimmed';
-    }
+    foreach (['projectDate', 'phoneNumber'] as $name) {
+        $field = $fields[$name] ?? null;
+        if (!is_array($field)) {
+            $errors[] = "Missing field spec: {$name}";
+            continue;
+        }
 
-    $email = $values['contactEmail'] ?? null;
-    if (!is_string($email) || $email !== 'ada@example.com') {
-        $errors[] = 'contactEmail must be sanitized (expected ada@example.com)';
-    }
-
-    $url = $values['websiteUrl'] ?? null;
-    if (!is_string($url) || $url !== 'https://example.com/path?x=1y=2') {
-        $errors[] = 'websiteUrl must be sanitized (expected spaces removed)';
-    }
-
-    $terms = $values['agreeToTerms'] ?? null;
-    if ($terms !== true) {
-        $errors[] = 'agreeToTerms must be a boolean true when checkbox is present';
+        $sanitize = $field['sanitize']['filter'] ?? null;
+        if ($sanitize !== FILTER_SANITIZE_NUMBER_INT) {
+            $errors[] = "{$name} sanitize.filter must be FILTER_SANITIZE_NUMBER_INT (as recommended in the exercise)";
+        }
     }
 }
 
-if (!empty($errors)) {
+if ($errors !== []) {
     print 'FAIL' . PHP_EOL . implode(PHP_EOL, $errors) . PHP_EOL;
     exit(1);
 }
 
 print 'PASS' . PHP_EOL;
-
