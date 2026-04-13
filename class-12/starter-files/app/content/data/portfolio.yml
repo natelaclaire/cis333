@@ -1,0 +1,13 @@
+---
+- imageUrl: "images/portfolio-thumbnails/soup-kitchen-thumbnail.png"
+  name: "Soup Kitchen"
+  description: "Here is a description of the site."
+  url: "#"
+- imageUrl: "images/portfolio-thumbnails/elegance-hair-studio-thumbnail.png"
+  name: "Elegance Hair Studio"
+  description: "Here is a description of the site."
+  url: "#"
+- imageUrl: "images/portfolio-thumbnails/techcore-engineering-thumbnail.png"
+  name: "TechCore Engineering"
+  description: "Here is a description of the site."
+  url: "#"
