@@ -43,6 +43,7 @@ function contactFields(): array
                 'autocomplete' => 'email',
             ],
         ],
+        // TODO: (exercise 12-3): add a subject field with appropriate validation rules and HTML attributes
         'message' => [
             'label' => 'Message',
             'type' => 'textarea',

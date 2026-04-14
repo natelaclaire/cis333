@@ -1,5 +1,7 @@
 RewriteEngine On
 
+# TODO (exercise 12-5): add a redirect rule so that /home redirects to /
+
 # Redirect any not found file to index.php?page=<requested_path>
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
