@@ -1,0 +1,24 @@
+{
+    "products": [
+        {
+            "name": "Wireless Mouse",
+            "description": "Ergonomic wireless mouse with adjustable DPI settings."
+        },
+        {
+            "name": "Mechanical Keyboard",
+            "description": "Compact mechanical keyboard with RGB backlighting."
+        },
+        {
+            "name": "USB-C Hub",
+            "description": "7-in-1 USB-C hub with HDMI, USB 3.0, and SD card support."
+        },
+        {
+            "name": "Noise-Cancelling Headphones",
+            "description": "Over-ear headphones with active noise cancellation and long battery life."
+        },
+        {
+            "name": "Portable SSD",
+            "description": "1TB portable SSD with high-speed USB 3.2 connectivity."
+        }
+    ]
+}
