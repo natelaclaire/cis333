@@ -1,0 +1,69 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: PHP Linting
+      id: php-linting
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: PHP Linting
+        setup-command: chmod +x ./.cis333tests/vendor/bin/phplint
+        command: "./.cis333tests/vendor/bin/phplint . --no-configuration --no-cache --exclude=vendor --extensions=php --warning"
+        timeout: 10
+    - name: Exercise 14-1
+      id: exercise-14-1
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Exercise 14-1
+        command: "php ./.cis333tests/grade-exercise-14-1.php"
+        timeout: 10
+    - name: Exercise 14-2
+      id: exercise-14-2
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Exercise 14-2
+        command: "php ./.cis333tests/grade-exercise-14-2.php"
+        timeout: 10
+    - name: Exercise 14-3
+      id: exercise-14-3
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Exercise 14-3
+        command: "php ./.cis333tests/grade-exercise-14-3.php"
+        timeout: 10
+    - name: Exercise 14-4
+      id: exercise-14-4
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Exercise 14-4
+        command: "php ./.cis333tests/grade-exercise-14-4.php"
+        timeout: 10
+    - name: Exercise 14-5
+      id: exercise-14-5
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Exercise 14-5
+        command: "php ./.cis333tests/grade-exercise-14-5.php"
+        timeout: 10
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        PHP-LINTING_RESULTS: "${{steps.php-linting.outputs.result}}"
+        EXERCISE-14-1_RESULTS: "${{steps.exercise-14-1.outputs.result}}"
+        EXERCISE-14-2_RESULTS: "${{steps.exercise-14-2.outputs.result}}"
+        EXERCISE-14-3_RESULTS: "${{steps.exercise-14-3.outputs.result}}"
+        EXERCISE-14-4_RESULTS: "${{steps.exercise-14-4.outputs.result}}"
+        EXERCISE-14-5_RESULTS: "${{steps.exercise-14-5.outputs.result}}"
+      with:
+        runners: php-linting, exercise-14-1, exercise-14-2, exercise-14-3, exercise-14-4, exercise-14-5

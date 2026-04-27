@@ -1,0 +1,12 @@
+{
+    "users": {
+        "john.doe@example.com": {
+            "password": "mysecretpassword",
+            "isAdmin": false
+        },
+        "admin@example.com": {
+            "password": "adminpassword",
+            "isAdmin": true
+        }
+    }
+}
